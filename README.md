@@ -1,6 +1,6 @@
 # Test your Memory! memory game
 
-Click [here]() to view the deployed website.
+Click [here](https://owencookman.github.io/MilestoneProject2/) to view the deployed website.
 
 The objective of this webpage is to provide users of all ages a way to exercise and improve their memory as well as a way to fight boredom, the aim is to create a memory based game that provides some challenge with varying degrees of difficulty selected by the user. 
 
