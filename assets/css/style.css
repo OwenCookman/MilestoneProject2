@@ -1,12 +1,4 @@
-* {
-    padding: 0;
-    Margin: 0;
-    box-sizing: border-box;
-}
-
 body {
-    height: 100vh;
-    display: flex;
     background-color: darkslategrey;
 }
 
@@ -14,40 +6,29 @@ body {
     text-align: center;
 }
 
-.container {
-    width: 80%;
-    height: 80%;
-    background-color: aqua;
-}
-
 .deck {
-    width: 640px;
-    Height: 640px;
+    width: 500px;
+    Height: 500px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: blue;
 }
 
 .card {
-    width:calc(25% - 10px);
-    height:calc(33.33% - 10px);
+    width:25%;
+    height:25%;
     background-color: red; 
     margin: 5px;
     position: relative;
+    max-width: 150px;
 }
 
 .front-face,
 .back-face {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
     position: absolute;
     border-radius: 5px;
 }
 
 i {
-    font-size: 90px;
-    text-align: center;
-    margin-top: 25%;
+    font-size: 80px;
+    margin-top: 15%;
+    margin-left: 15%;
 }
