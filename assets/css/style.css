@@ -45,3 +45,9 @@ body {
     position: absolute;
     border-radius: 5px;
 }
+
+i {
+    font-size: 90px;
+    text-align: center;
+    margin-top: 25%;
+}
