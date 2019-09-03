@@ -21,14 +21,13 @@ body {
     max-width: 150px;
 }
 
-.front-face,
-.back-face {
-    position: absolute;
-    border-radius: 5px;
-}
-
 i {
-    font-size: 80px;
+    font-size: 0px;
     margin-top: 15%;
     margin-left: 15%;
+    position: absolute;
+}
+
+.flip-card {
+    font-size: 80px;
 }
