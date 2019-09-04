@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+.header {
+text-align: center;
+color: blanchedalmond;
+}
+
+.deck {
+width: 600px;
+height: 600px;
+margin: 0 auto;
+background-color: darkslategrey;
+}
+
+.card {
+font-size: 0px; 
+text-align: center;
+background-color: darkred;
+width:25%;
+margin: 5px;
+position: relative;
+max-width: 120px;
+justify-content: center;
+}
+
+.flip-card {
+    font-size: 80px;
+}
