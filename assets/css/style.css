@@ -26,5 +26,13 @@ justify-content: center;
 }
 
 .flip-card {
-    font-size: 50px;
+    font-size: 70px;
+}
+
+.card i {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
