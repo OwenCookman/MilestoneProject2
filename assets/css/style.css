@@ -25,6 +25,14 @@ max-width: 120px;
 justify-content: center;
 }
 
+.card i {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
 .flip {
     animation-name: flip;
 animation-duration: .5s;
@@ -40,14 +48,25 @@ animation-timing-function: linear;
     }
 }
 
-.flip-card {
+.show {
+    animation-name: show;
+    animation-duration:.5s;
+    animation-iteration-count: inherit;
+    animation-timing-function: linear;
+}
+
+@keyframes show {
+    from{
+        transform: rotateY(0deg);
+        font-size: 0px;
+    } to {
+        transform: rotateY(180deg);
+        font-size: 70px;
+    }
+}
+
+.disable {
+    pointer-events: none;
     font-size: 70px;
 }
 
-.card i {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-}

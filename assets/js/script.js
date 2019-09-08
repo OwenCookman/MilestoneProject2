@@ -3,8 +3,8 @@ let cards = [...card];
 
 for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function () {
-        this.classList.toggle("flip-card")
+        this.classList.toggle("show")
         this.classList.toggle("flip")
+        this.classList.toggle("disable")
     });
 }
-
