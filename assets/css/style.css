@@ -25,6 +25,21 @@ max-width: 120px;
 justify-content: center;
 }
 
+.flip {
+    animation-name: flip;
+animation-duration: .5s;
+animation-iteration-count: initial;
+animation-timing-function: linear;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    } to {
+        transform: rotateY(180deg);
+    }
+}
+
 .flip-card {
     font-size: 70px;
 }
