@@ -43,21 +43,6 @@ animation-timing-function: linear;
 @keyframes flip {
     from {
         transform: rotateY(0deg);
-    } to {
-        transform: rotateY(180deg);
-    }
-}
-
-.show {
-    animation-name: show;
-    animation-duration:.5s;
-    animation-iteration-count: inherit;
-    animation-timing-function: linear;
-}
-
-@keyframes show {
-    from{
-        transform: rotateY(0deg);
         font-size: 0px;
     } to {
         transform: rotateY(180deg);
