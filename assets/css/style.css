@@ -38,6 +38,7 @@ justify-content: center;
 animation-duration: .5s;
 animation-iteration-count: initial;
 animation-timing-function: linear;
+font-size: 70px;
 }
 
 @keyframes flip {
@@ -52,6 +53,13 @@ animation-timing-function: linear;
 
 .disable {
     pointer-events: none;
+}
+
+.matched {
+    background-color: darkblue;
     font-size: 70px;
 }
 
+.not-match {
+    background-color: black;
+}
