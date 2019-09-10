@@ -1,17 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
+
 body {
     background-color: black;
-}
-
-.page-title {
-text-align: center;
-color: blanchedalmond;
+    font-family: "Merriweather", "serif";
+    text-align: center;
+    color: blanchedalmond;
 }
 
 .deck {
 width: 600px;
 height: 600px;
 margin: 0 auto;
-background-color: darkslategrey;
+background-color: black;
 }
 
 .card {
@@ -31,6 +31,7 @@ justify-content: center;
     margin-right: auto;
     left: 0;
     right: 0;
+    color: black;
 }
 
 .flip {
@@ -56,10 +57,21 @@ font-size: 70px;
 }
 
 .matched {
-    background-color: darkblue;
     font-size: 70px;
+    animation-name: match;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes match {
+    from {
+        transform: rotateY(0deg)
+    } to {
+        transform: rotateY(180deg)
+    }
 }
 
 .not-match {
-    background-color: black;
+    background-color: darkslategrey;
 }
