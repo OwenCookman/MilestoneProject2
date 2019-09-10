@@ -11,6 +11,7 @@ function cardFlipped() {
     flippedCards.push(this);
     var len = flippedCards.length;
     if(len === 2){
+        moveCounter();
         if(flippedCards[0].type === flippedCards[1].type){
             matched();
         } else {
@@ -88,3 +89,10 @@ function startGame() {
 
 window.onload = startGame();
 
+function moveCounter(){    
+    moves++;    
+    counter.innerHTML = moves;
+}
+
+let moves = 0;
+let counter = document.querySelector(".moves");
