@@ -95,7 +95,7 @@ function moveCounter() {
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-//Shuffles the cards and removes any classes that have been added
+//Restarts the game cards
 const deck = document.querySelector(".deck");
 function startGame() {
     var shuffledCards = shuffle(cards);
@@ -105,6 +105,7 @@ function startGame() {
         });
         cards[i].classList.remove("flip", "matched", "disable");
      }
+     //Restarts the move counter
      moves = 0;
         counter.innerHTML = moves;
     }
