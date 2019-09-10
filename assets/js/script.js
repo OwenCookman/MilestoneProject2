@@ -1,18 +1,19 @@
+//Puts all cards in to an Array
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 
-
-function flipCard(){ 
+//Adds classes when a card is selected
+function flipCard() {
     this.classList.toggle("flip");
     this.classList.toggle("disable");
 }
-
+//Adds flipped cards to a seperate Array and checks for match
 function cardFlipped() {
     flippedCards.push(this);
     var len = flippedCards.length;
-    if(len === 2){
+    if (len === 2) {
         moveCounter();
-        if(flippedCards[0].type === flippedCards[1].type){
+        if (flippedCards[0].type === flippedCards[1].type) {
             matched();
         } else {
             notMatched();
@@ -20,10 +21,12 @@ function cardFlipped() {
     }
 };
 
+//Flipped cards Array
 var flippedCards = [];
 let matchedCard = document.getElementsByClassName("match");
 
-function matched(){
+//Adds and removes classes from matched cards
+function matched() {
     flippedCards[0].classList.add("matched");
     flippedCards[1].classList.add("matched");
     flippedCards[0].classList.remove("flip");
@@ -31,39 +34,44 @@ function matched(){
     flippedCards = [];
 }
 
-function notMatched(){
+//Adds and removes classes from cards that don't match
+function notMatched() {
     flippedCards[0].classList.add("not-match");
     flippedCards[1].classList.add("not-match");
+    //Temporarily disables cards
     disable();
-    setTimeout(function(){
+    setTimeout(function () {
         flippedCards[0].classList.remove("flip", "not-match");
         flippedCards[1].classList.remove("flip", "not-match");
         enable();
         flippedCards = [];
-    },1100);
+    }, 1100);
 }
 
-function disable(){
-    Array.prototype.filter.call(cards, function(card){
+//Disables cards
+function disable() {
+    Array.prototype.filter.call(cards, function (card) {
         card.classList.add('disable');
     });
 }
 
-function enable(){
-    Array.prototype.filter.call(cards, function(card){
+//Enables cards by removing the class
+function enable() {
+    Array.prototype.filter.call(cards, function (card) {
         card.classList.remove('disable');
-        for(var i = 0; i < matchedCard.length; i++){
+        for (var i = 0; i < matchedCard.length; i++) {
             matchedCard[i].classList.add("disable");
         }
     });
 }
 
+//Adds event listeners to all cards
 for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", flipCard);
     cards[i].addEventListener("click", cardFlipped);
-    }
+}
 
-
+//Shuffles cards in to a random order
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -86,13 +94,15 @@ function startGame() {
         });
     }
 }
-
+//Shuffles cards every time the function is called
 window.onload = startGame();
 
-function moveCounter(){    
-    moves++;    
+//Adds 1 to the move counter every time the function is called
+function moveCounter() {
+    moves++;
     counter.innerHTML = moves;
 }
 
+//sets the starting value of the move counter
 let moves = 0;
 let counter = document.querySelector(".moves");
