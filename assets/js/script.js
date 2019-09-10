@@ -85,18 +85,6 @@ function shuffle(array) {
     return array;
 }
 
-const deck = document.querySelector(".deck");
-function startGame() {
-    var shuffledCards = shuffle(cards);
-    for (var i = 0; i < shuffledCards.length; i++) {
-        [].forEach.call(shuffledCards, function (item) {
-            deck.appendChild(item);
-        });
-    }
-}
-//Shuffles cards every time the function is called
-window.onload = startGame();
-
 //Adds 1 to the move counter every time the function is called
 function moveCounter() {
     moves++;
@@ -106,3 +94,21 @@ function moveCounter() {
 //sets the starting value of the move counter
 let moves = 0;
 let counter = document.querySelector(".moves");
+
+//Shuffles the cards and removes any classes that have been added
+const deck = document.querySelector(".deck");
+function startGame() {
+    var shuffledCards = shuffle(cards);
+    for (var i = 0; i < shuffledCards.length; i++) {
+        [].forEach.call(shuffledCards, function (item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("flip", "matched", "disable");
+     }
+     moves = 0;
+        counter.innerHTML = moves;
+    }
+  
+//Runs the startGame function when the window has loaded
+window.onload = startGame();
+
