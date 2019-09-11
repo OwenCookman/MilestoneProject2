@@ -1,12 +1,17 @@
-//Puts all cards in to an Array
+//Global variables
 var card = document.getElementsByClassName("card");
 var cards = [...card];
+var flippedCards = [];
+var matchedCard = document.getElementsByClassName("match");
+var moves = 0;
+var counter = document.querySelector(".moves");
 
 //Adds classes when a card is selected
 function flipCard() {
     this.classList.toggle("flip");
     this.classList.toggle("disable");
 }
+
 //Adds flipped cards to a seperate Array and checks for match
 function cardFlipped() {
     flippedCards.push(this);
@@ -20,10 +25,6 @@ function cardFlipped() {
         }
     }
 };
-
-//Flipped cards Array
-var flippedCards = [];
-var matchedCard = document.getElementsByClassName("match");
 
 //Adds and removes classes from matched cards
 function matched() {
@@ -90,10 +91,6 @@ function moveCounter() {
     moves++;
     counter.innerHTML = moves;
 }
-
-//sets the starting value of the move counter
-var moves = 0;
-var counter = document.querySelector(".moves");
 
 //Restarts the game cards
 const deck = document.querySelector(".deck");
