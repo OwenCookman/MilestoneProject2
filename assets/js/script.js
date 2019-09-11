@@ -1,10 +1,13 @@
-//Global variables
-var card = document.getElementsByClassName("card");
-var cards = [...card];
-var flippedCards = [];
-var matchedCard = document.getElementsByClassName("match");
-var moves = 0;
-var counter = document.querySelector(".moves");
+//Global letiables
+let card = document.getElementsByClassName("card");
+let cards = [...card];
+let flippedCards = [];
+let matchedCard = document.getElementsByClassName("match");
+let moves = 0;
+let counter = document.querySelector(".moves");
+let restart = document.getElementById("restart");
+
+const deck = document.querySelector(".deck");
 
 /**
  * Adds classes when a card is selected
@@ -19,7 +22,7 @@ function flipCard() {
  */
 function cardFlipped() {
     flippedCards.push(this);
-    var len = flippedCards.length;
+    let len = flippedCards.length;
     if (len === 2) {
         moveCounter();
         if (flippedCards[0].type === flippedCards[1].type) {
@@ -31,7 +34,7 @@ function cardFlipped() {
 };
 
 /**
- * Adds and removes classes from matched cards
+ * Adds and removes classes from matched cards and empties flippedCards array
  */
 function matched() {
     flippedCards[0].classList.add("matched");
@@ -42,7 +45,7 @@ function matched() {
 }
 
 /**
- * Adds and removes classes from cards that don't match
+ * Adds and removes classes from cards that don't match and empties flippedCards array
  */
 function notMatched() {
     flippedCards[0].classList.add("not-match");
@@ -72,14 +75,14 @@ function disable() {
 function enable() {
     Array.prototype.filter.call(cards, function (card) {
         card.classList.remove('disable');
-        for (var i = 0; i < matchedCard.length; i++) {
+        for (let i = 0; i < matchedCard.length; i++) {
             matchedCard[i].classList.add("disable");
         }
     });
 }
 
 //Adds event listeners to all cards
-for (var i = 0; i < cards.length; i++) {
+for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", flipCard);
     cards[i].addEventListener("click", cardFlipped);
 }
@@ -88,7 +91,7 @@ for (var i = 0; i < cards.length; i++) {
  * Shuffles cards in to a random order
  */
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -109,12 +112,11 @@ function moveCounter() {
 }
 
 /**
- * Restarts the game cards
+ * Shuffles the cards and resets move counter
  */
-const deck = document.querySelector(".deck");
 function startGame() {
-    var shuffledCards = shuffle(cards);
-    for (var i = 0; i < shuffledCards.length; i++) {
+    let shuffledCards = shuffle(cards);
+    for (let i = 0; i < shuffledCards.length; i++) {
         [].forEach.call(shuffledCards, function (item) {
             deck.appendChild(item);
         });
@@ -127,4 +129,3 @@ function startGame() {
   
 //Runs the startGame function when the window has loaded
 window.onload = startGame();
-
