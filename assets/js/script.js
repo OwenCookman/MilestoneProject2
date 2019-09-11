@@ -1,6 +1,6 @@
 //Puts all cards in to an Array
-let card = document.getElementsByClassName("card");
-let cards = [...card];
+var card = document.getElementsByClassName("card");
+var cards = [...card];
 
 //Adds classes when a card is selected
 function flipCard() {
@@ -23,7 +23,7 @@ function cardFlipped() {
 
 //Flipped cards Array
 var flippedCards = [];
-let matchedCard = document.getElementsByClassName("match");
+var matchedCard = document.getElementsByClassName("match");
 
 //Adds and removes classes from matched cards
 function matched() {
@@ -92,8 +92,8 @@ function moveCounter() {
 }
 
 //sets the starting value of the move counter
-let moves = 0;
-let counter = document.querySelector(".moves");
+var moves = 0;
+var counter = document.querySelector(".moves");
 
 //Restarts the game cards
 const deck = document.querySelector(".deck");
