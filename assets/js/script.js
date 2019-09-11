@@ -6,13 +6,17 @@ var matchedCard = document.getElementsByClassName("match");
 var moves = 0;
 var counter = document.querySelector(".moves");
 
-//Adds classes when a card is selected
+/**
+ * Adds classes when a card is selected
+ */
 function flipCard() {
     this.classList.toggle("flip");
     this.classList.toggle("disable");
 }
 
-//Adds flipped cards to a seperate Array and checks for match
+/**
+ * Adds flipped cards to a seperate Array and checks for match
+ */
 function cardFlipped() {
     flippedCards.push(this);
     var len = flippedCards.length;
@@ -26,7 +30,9 @@ function cardFlipped() {
     }
 };
 
-//Adds and removes classes from matched cards
+/**
+ * Adds and removes classes from matched cards
+ */
 function matched() {
     flippedCards[0].classList.add("matched");
     flippedCards[1].classList.add("matched");
@@ -35,7 +41,9 @@ function matched() {
     flippedCards = [];
 }
 
-//Adds and removes classes from cards that don't match
+/**
+ * Adds and removes classes from cards that don't match
+ */
 function notMatched() {
     flippedCards[0].classList.add("not-match");
     flippedCards[1].classList.add("not-match");
@@ -49,14 +57,18 @@ function notMatched() {
     }, 1100);
 }
 
-//Disables cards
+/**
+ * Disables cards
+ */
 function disable() {
     Array.prototype.filter.call(cards, function (card) {
         card.classList.add('disable');
     });
 }
 
-//Enables cards by removing the class
+/**
+ * Enables unmatched cards and keeps matched cards disabled 
+ */
 function enable() {
     Array.prototype.filter.call(cards, function (card) {
         card.classList.remove('disable');
@@ -72,7 +84,9 @@ for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", cardFlipped);
 }
 
-//Shuffles cards in to a random order
+/**
+ * Shuffles cards in to a random order
+ */
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -86,13 +100,17 @@ function shuffle(array) {
     return array;
 }
 
-//Adds 1 to the move counter every time the function is called
+/**
+ * Adds 1 to the move counter every time the function is called
+ */
 function moveCounter() {
     moves++;
     counter.innerHTML = moves;
 }
 
-//Restarts the game cards
+/**
+ * Restarts the game cards
+ */
 const deck = document.querySelector(".deck");
 function startGame() {
     var shuffledCards = shuffle(cards);
