@@ -1,4 +1,4 @@
-//Global letiables
+//Global variables
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 let flippedCards = [];
