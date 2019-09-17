@@ -1,5 +1,12 @@
 $(document).ready(function () {
     var flippedCards = [];
+    var cards = document.querySelector("ul");
+
+    function startGame() {
+        for (var i = cards.children.length; i >= 0; i--) {
+            cards.appendChild(cards.children[Math.random() * i | 0]);
+        }
+    }
 
     $("ul>li").click(function () {
         $(this).toggleClass("flip");
@@ -23,9 +30,11 @@ $(document).ready(function () {
                     $(".matched").addClass("disable");
                 }, 1100);
             }
-             flippedCards.length = 0;
+            flippedCards.length = 0;
         }
     }
+
+    window.onload = startGame();
 })
 
 
