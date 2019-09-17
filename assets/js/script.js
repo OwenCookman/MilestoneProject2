@@ -21,8 +21,13 @@ $(document).ready(function () {
         checkMatch(flippedCards);
     })
 
+    function moved() {
+        $(".moves").innerHTML ++;
+    }
+
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
+            moved();
             if (flippedCards[0].type == flippedCards[1].type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
