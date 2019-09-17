@@ -6,11 +6,13 @@ $(document).ready(function () {
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }
-        $(".card").removeClass("matched");
-        $(".card").removeClass("disable");
     }
 
-    $("#restart").click(startGame);
+    $("#restart").click(function() { 
+        startGame();
+        $(".card").removeClass("matched");
+        $(".card").removeClass("disable");
+    })
 
     $("ul>li").click(function () {
         $(this).toggleClass("flip");
