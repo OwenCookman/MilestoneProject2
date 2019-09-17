@@ -6,7 +6,11 @@ $(document).ready(function () {
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }
+        $(".card").removeClass("matched");
+        $(".card").removeClass("disable");
     }
+
+    $("#restart").click(startGame);
 
     $("ul>li").click(function () {
         $(this).toggleClass("flip");
@@ -33,7 +37,6 @@ $(document).ready(function () {
             flippedCards.length = 0;
         }
     }
-
     window.onload = startGame();
 })
 
