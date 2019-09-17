@@ -5,24 +5,25 @@ $(document).ready(function () {
         $(this).toggleClass("flip");
         $(this).toggleClass("disable");
         (flippedCards).push(this);
-        checkMatch();
-        console.log(flippedCards);
+        checkMatch(flippedCards);
     })
 
-    function checkMatch() {
+    function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
-            if (flippedCards[0] == flippedCards[1]) {
+            if (flippedCards[0].type == flippedCards[1].type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
             } else {
                 $(flippedCards).addClass("not-match");
+                $(flippedCards).removeClass("flip");
                 $(".card").addClass("disable");
                 setTimeout(function () {
-                    $(flippedCards).removeClass("not-match");
+                    $(".card").removeClass("not-match");
                     $(".card").removeClass("disable");
+                    $(".matched").addClass("disable");
                 }, 1100);
             }
-            var flippedCards = [];
+             flippedCards.length = 0;
         }
     }
 })
