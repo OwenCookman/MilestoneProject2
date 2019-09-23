@@ -4,6 +4,7 @@ body {
     background-color: #212121;
     font-family: "Merriweather", "serif";
     text-align: center;
+    font-size: 16px;
     color: #ffebcd;
 }
 
@@ -14,18 +15,17 @@ margin: 0 auto;
 background-color: #212121;
 }
 
-.card {
-font-size: 0px; 
+.game-card {
+font-size: 0rem; 
 text-align: center;
 background-color: #8b0000;
-width:25%;
 margin: 5px;
 position: relative;
 max-width: 120px;
 justify-content: center;
 }
 
-.card i {
+.game-card i {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -39,16 +39,16 @@ justify-content: center;
 animation-duration: .5s;
 animation-iteration-count: initial;
 animation-timing-function: linear;
-font-size: 70px;
+font-size: 4rem;
 }
 
 @keyframes flip {
     from {
         transform: rotateY(0deg);
-        font-size: 0px;
+        font-size: 0rem;
     } to {
         transform: rotateY(180deg);
-        font-size: 70px;
+        font-size: 4rem;
     }
 }
 
@@ -57,7 +57,7 @@ font-size: 70px;
 }
 
 .matched {
-    font-size: 70px;
+    font-size: 4rem;
     animation-name: match;
     animation-duration: .5s;
     animation-iteration-count: 2;
@@ -75,5 +75,5 @@ font-size: 70px;
 
 .not-match {
     background-color: #111111;
-    font-size: 70px;
+    font-size: 4rem;
 }
