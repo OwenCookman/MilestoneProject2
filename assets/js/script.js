@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //Global Variables
-    var flippedCards = [];
-    var cards = document.querySelector("ul");
+    const flippedCards = [];
+    const cards = document.querySelector(".deck");
 
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
@@ -20,8 +20,8 @@ $(document).ready(function () {
      */
     $("#restart").click(function() { 
         startGame();
-        $(".card").removeClass("matched");
-        $(".card").removeClass("disable");
+        $(".game-card").removeClass("matched");
+        $(".game-card").removeClass("disable");
         $("#moves")[0].innerHTML = 0;
     })
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
      * when they are clicked apply the classes flip and disable
      * Push the element to the flippedCards array and run the checkMatch() function
      */
-    $("ul>li").click(function () {
+    $(".game-card").click(function () {
         $(this).toggleClass("flip");
         $(this).toggleClass("disable");
         (flippedCards).push(this);
@@ -65,10 +65,10 @@ $(document).ready(function () {
             } else {
                 $(flippedCards).addClass("not-match");
                 $(flippedCards).removeClass("flip");
-                $(".card").addClass("disable");
+                $(".game-card").addClass("disable");
                 setTimeout(function () {
-                    $(".card").removeClass("not-match");
-                    $(".card").removeClass("disable");
+                    $(".game-card").removeClass("not-match");
+                    $(".game-card").removeClass("disable");
                     $(".matched").addClass("disable");
                 }, 1100);
             }
