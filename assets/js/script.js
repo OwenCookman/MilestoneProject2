@@ -50,7 +50,7 @@ $(document).ready(function () {
     /**
      * When called this function will check if the length of the flippedCards array is 2
      * If this return true it will call the moved() function to add 1 to the move counter
-     * It then checks the objects types in the flippedCards array
+     * It then checks the objects Data in the flippedCards array
      * If they match it will add the class matched and remove flip
      * If they dont match it will add the not-match class and remove the flip class
      * As well as adding the disable class to all elements with the game-card class
@@ -61,7 +61,7 @@ $(document).ready(function () {
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
             moved();
-            if (flippedCards[0].type == flippedCards[1].type) {
+            if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
             } else {
