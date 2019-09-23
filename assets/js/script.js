@@ -23,6 +23,7 @@ $(document).ready(function () {
         $(".game-card").removeClass("matched");
         $(".game-card").removeClass("disable");
         $(".game-card").removeClass("flip");
+        flippedCards.length = 0;
         $("#moves")[0].innerHTML = 0;
     })
 
