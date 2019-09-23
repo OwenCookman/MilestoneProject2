@@ -22,6 +22,7 @@ $(document).ready(function () {
         startGame();
         $(".game-card").removeClass("matched");
         $(".game-card").removeClass("disable");
+        $(".game-card").removeClass("flip");
         $("#moves")[0].innerHTML = 0;
     })
 
