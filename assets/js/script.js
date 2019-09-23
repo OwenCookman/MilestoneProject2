@@ -2,7 +2,7 @@ $(document).ready(function () {
     //Global Variables
     const flippedCards = [];
     const cards = document.querySelector(".deck");
-
+    
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
@@ -13,10 +13,10 @@ $(document).ready(function () {
     }
 
     /**
-     * targets the HTML element with ID of restart 
+     * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
-     * and removes any matched and disable classes from any elements with the class card
-     * and sets the move counter back to 0
+     * And removes any matched and disable classes from any elements with the class card
+     * And sets the move counter back to 0
      */
     $("#restart").click(function() { 
         startGame();
@@ -26,8 +26,8 @@ $(document).ready(function () {
     })
 
     /**
-     * Targets all <li> that are children of <ul> elements
-     * when they are clicked apply the classes flip and disable
+     * Targets all elements with class game-card
+     * When they are clicked apply the classes flip and disable
      * Push the element to the flippedCards array and run the checkMatch() function
      */
     $(".game-card").click(function () {
@@ -38,8 +38,8 @@ $(document).ready(function () {
     })
 
     /**
-     * targets element with ID moves
-     * when called this function increases the innerHTML value by 1
+     * Targets element with ID moves
+     * When called this function increases the innerHTML value by 1
      */
     function moved() {
         $("#moves")[0].innerHTML ++;
@@ -51,7 +51,7 @@ $(document).ready(function () {
      * It then checks the objects types in the flippedCards array
      * If they match it will add the class matched and remove flip
      * If they dont match it will add the not-match class and remove the flip class
-     * As well as adding the disable class to all elements with the card class
+     * As well as adding the disable class to all elements with the game-card class
      * it will then wait 1100 miliseconds before removing not-match and disable from all cards
      * Then reapply disable to any cards with the class matched
      * Finally it will reset the flippedCards length to 0
