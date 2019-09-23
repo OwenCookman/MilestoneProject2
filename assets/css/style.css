@@ -8,6 +8,11 @@ body {
     color: #ffebcd;
 }
 
+.game-board {
+    width: 605px;
+    height: 605px;
+}
+
 .deck {
 width: 600px;
 height: 600px;
