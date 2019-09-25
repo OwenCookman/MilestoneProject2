@@ -66,10 +66,12 @@ $(document).ready(function () {
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
             moved();
+            time();
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
                 $(matchedCards).push(flippedCards);
+                win();
             } else {
                 $(flippedCards).addClass("not-match");
                 $(flippedCards).removeClass("flip");
@@ -84,24 +86,27 @@ $(document).ready(function () {
         }
     }
 
-   if  (moves == 1) {
-       setInterval (function() {
-           seconds++;
-           if (seconds == 60) {
-               minutes ++;
-               seconds = 0;
-               if (minutes ==60) {
-                   hours++;
-                   minutes = 0;
-               }
-           }
-       },1000);
-   }
-    
+    function time() {
+        if (moves == 1) {
+            setInterval(function () {
+                seconds++;
+                if (seconds == 60) {
+                    minutes++;
+                    seconds = 0;
+                    if (minutes == 60) {
+                        hours++;
+                        minutes = 0;
+                    }
+                }
+            }, 1000);
+        }
+    }
 
+function win() {
     if (matchedCards.length == [16]) {
         console.log("winner!");
     }
+}
 
     startGame();
 })
