@@ -84,17 +84,20 @@ $(document).ready(function () {
         }
     }
 
-    if (moves = 1) {
-        seconds.innerHTML++;
-        if (seconds = 60) {
-            minutes++;
-            seconds = 0;
-            if (minutes = 60) {
-                hours++;
-                minutes = 0;
-            }
-        }
-    }
+   if  (moves == 1) {
+       setInterval (function() {
+           seconds++;
+           if (seconds == 60) {
+               minutes ++;
+               seconds = 0;
+               if (minutes ==60) {
+                   hours++;
+                   minutes = 0;
+               }
+           }
+       },1000);
+   }
+    
 
     if (matchedCards.length == [16]) {
         console.log("winner!");
