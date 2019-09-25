@@ -22,6 +22,7 @@ $(document).ready(function () {
      * When this element is clicked it runs the startGame() function
      * And removes any matched, disable and flip classes from any elements with the class game-card
      * Sets the move counter back to 0 and the seconds, minutes and hours of the timer back to 0
+     * Then stops the interval used in the time() function
      */
     $("#restart").click(function () {
         startGame();
@@ -37,6 +38,7 @@ $(document).ready(function () {
         $("#minutes")[0].innerHTML = minutes;
         hours = 0;
         $("#hours")[0].innerHTML = hours;
+        clearInterval(timer);
     })
 
     /**
@@ -78,8 +80,9 @@ $(document).ready(function () {
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
-                $(matchedCards).push(flippedCards);
-                win();
+                (matchedCards).push(flippedCards);
+                console.log(matchedCards);
+                complete();
             } else {
                 $(flippedCards).addClass("not-match");
                 $(flippedCards).removeClass("flip");
@@ -105,8 +108,7 @@ $(document).ready(function () {
      */
     function time() {
         if (moves == 1) {
-            setInterval(function () {
-                console.log(seconds);
+            timer = setInterval(function () {
                 seconds++;
                 $("#seconds")[0].innerHTML = seconds;
                 if (seconds == 60) {
@@ -125,8 +127,8 @@ $(document).ready(function () {
         }
     }
 
-    function win() {
-        if (matchedCards.length == [16]) {
+    function complete() {
+        if (matchedCards.length == [8]) {
             console.log("winner!");
         }
     }
