@@ -3,10 +3,10 @@ $(document).ready(function () {
     const flippedCards = [];
     const matchedCards = [];
     const cards = document.querySelector(".deck");
+    var moves = 0;
     var seconds = 0;
     var minutes = 0;
     var hours = 0;
-    var moves = 0;
 
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
@@ -20,8 +20,8 @@ $(document).ready(function () {
     /**
      * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
-     * And removes any matched and disable classes from any elements with the class card
-     * And sets the move counter back to 0
+     * And removes any matched, disable and flip classes from any elements with the class game-card
+     * Sets the move counter back to 0 and the seconds, minutes and hours of the timer back to 0
      */
     $("#restart").click(function () {
         startGame();
@@ -52,8 +52,8 @@ $(document).ready(function () {
     })
 
     /**
-     * Targets element with ID moves
-     * When called this function increases the innerHTML value by 1
+     * When called this function increases the variable moves value by 1
+     * And displays the variables value in the inner HTML of the the element with the ID moves
      */
     function moved() {
         moves++;
@@ -94,8 +94,16 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * When called this function checks if the variable moves is = to 1
+     * If so the variable seconds has 1 added to its value every 1000 milliseconds
+     * And displays in the inner HTML of the element with ID seconds
+     * If seconds value reaches 60 the variable minutes adds 1 to its value
+     * And displays in the inner HTML of the element with ID minutes
+     * If minutes value reaches 60 the variable hours adds 1 to its value
+     * And displays in the inner HTML of the element with ID hours
+     */
     function time() {
-        console.log(moves);
         if (moves == 1) {
             setInterval(function () {
                 console.log(seconds);
