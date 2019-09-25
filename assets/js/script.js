@@ -1,8 +1,13 @@
 $(document).ready(function () {
     //Global Variables
     const flippedCards = [];
+    const matchedCards = [];
     const cards = document.querySelector(".deck");
-    
+    var seconds = document.querySelector("#seconds"[0].innerHTML);
+    var minutes = document.querySelector("#minutes"[0].innerHTML);
+    var hours = document.querySelector("#hours"[0].innerHTML);
+    var moves = document.querySelector("#moves"[0].innerHTML)
+
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
@@ -18,7 +23,7 @@ $(document).ready(function () {
      * And removes any matched and disable classes from any elements with the class card
      * And sets the move counter back to 0
      */
-    $("#restart").click(function() { 
+    $("#restart").click(function () {
         startGame();
         $(".game-card").removeClass("matched");
         $(".game-card").removeClass("disable");
@@ -44,7 +49,7 @@ $(document).ready(function () {
      * When called this function increases the innerHTML value by 1
      */
     function moved() {
-        $("#moves")[0].innerHTML ++;
+        $("#moves")[0].innerHTML++;
     }
 
     /**
@@ -64,6 +69,7 @@ $(document).ready(function () {
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
+                $(matchedCards).push(flippedCards);
             } else {
                 $(flippedCards).addClass("not-match");
                 $(flippedCards).removeClass("flip");
@@ -77,7 +83,24 @@ $(document).ready(function () {
             flippedCards.length = 0;
         }
     }
-    window.onload = startGame();
+
+    if (moves = 1) {
+        seconds.innerHTML++;
+        if (seconds = 60) {
+            minutes++;
+            seconds = 0;
+            if (minutes = 60) {
+                hours++;
+                minutes = 0;
+            }
+        }
+    }
+
+    if (matchedCards.length == [16]) {
+        console.log("winner!");
+    }
+
+    startGame();
 })
 
 
