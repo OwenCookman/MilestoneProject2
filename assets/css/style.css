@@ -83,3 +83,20 @@ font-size: 4rem;
     font-size: 4rem;
 }
 
+.modal-header {
+    border-bottom: none;
+    background-color: #111111;
+}
+
+.modal-body {
+    background-color: #111111;
+}
+
+.close {
+    color: #ffebcd;
+}
+
+.modal-footer {
+    border-top: none;
+    background-color: #111111;
+}
