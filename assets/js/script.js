@@ -7,6 +7,14 @@ $(document).ready(function () {
     var seconds = 0;
     var minutes = 0;
     var hours = 0;
+    var finishMoves = 0;
+    var finishSeconds = 0;
+    var finishMinutes = 0;
+    var finishHours = 0;
+    var recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
+    var recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
+    var recordHours = JSON.parse(window.localStorage.getItem("recHour"));
+    var recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
 
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
@@ -136,12 +144,35 @@ $(document).ready(function () {
             $("#finish-minutes")[0].innerHTML = minutes;
             $("#finish-hours")[0].innerHTML = hours;
             $("#finish-moves")[0].innerHTML = moves;
+            finishSeconds = seconds;
+            finishMinutes = minutes;
+            finishHours = hours;
+            finishMoves = moves;
+            record()
+            matchedCards.length = 0;
         }
     }
 
+    function record() {
+        if (finishMoves <= recordMoves) {
+            window.localStorage.setItem("recMove", moves);
+        } if (finishHours <= recordHours) {
+            window.localStorage.setItem("recHour", hours);
+        } if (finishMinutes < recordMinutes) {
+            window.localStorage.setItem("recMin", minutes);
+        } if (finishSeconds < recordSeconds) {
+            window.localStorage.setItem("recSec", seconds);
+        }
+        $("#record-seconds")[0].innerHTML = JSON.parse(window.localStorage.getItem("recSec"));
+        $("#record-minutes")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMin"));
+        $("#record-hours")[0].innerHTML = JSON.parse(window.localStorage.getItem("recHour"));
+        $("#record-moves")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMove"));
+    }
+
+
         $("#replay").click(replay);
 
-        function replay () {
+        function replay() {
             $("#congratulations").modal("hide");
             restart();
         }
