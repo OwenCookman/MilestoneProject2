@@ -129,7 +129,7 @@ $(document).ready(function () {
 
     function complete() {
         if (matchedCards.length == [8]) {
-            console.log("winner!");
+            $("#congratulations").modal("show");
             clearInterval(timer);
         }
     }
