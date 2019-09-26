@@ -24,7 +24,9 @@ $(document).ready(function () {
      * Sets the move counter back to 0 and the seconds, minutes and hours of the timer back to 0
      * Then stops the interval used in the time() function
      */
-    $("#restart").click(function () {
+    $("#restart").click(restart);
+
+        function restart() {
         startGame();
         $(".game-card").removeClass("matched");
         $(".game-card").removeClass("disable");
@@ -39,7 +41,7 @@ $(document).ready(function () {
         hours = 0;
         $("#hours")[0].innerHTML = hours;
         clearInterval(timer);
-    })
+        }
 
     /**
      * Targets all elements with class game-card
@@ -134,8 +136,15 @@ $(document).ready(function () {
         }
     }
 
+        $("#replay").click(replay);
+
+        function replay () {
+            $("#congratulations").modal("hide");
+            restart();
+        }
+
     startGame();
-})
+    })
 
 
 
