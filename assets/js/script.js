@@ -83,7 +83,6 @@ $(document).ready(function () {
                 $(flippedCards).addClass("matched");
                 $(flippedCards).removeClass("flip");
                 (matchedCards).push(flippedCards);
-                console.log(matchedCards);
                 complete();
             } else {
                 $(flippedCards).addClass("not-match");
@@ -133,6 +132,10 @@ $(document).ready(function () {
         if (matchedCards.length == [8]) {
             $("#congratulations").modal("show");
             clearInterval(timer);
+            $("#finish-seconds")[0].innerHTML = seconds;
+            $("#finish-minutes")[0].innerHTML = minutes;
+            $("#finish-hours")[0].innerHTML = hours;
+            $("#finish-moves")[0].innerHTML = moves;
         }
     }
 
@@ -142,7 +145,7 @@ $(document).ready(function () {
             $("#congratulations").modal("hide");
             restart();
         }
-        
+
     startGame();
     })
 
