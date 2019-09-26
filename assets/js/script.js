@@ -142,7 +142,7 @@ $(document).ready(function () {
             $("#congratulations").modal("hide");
             restart();
         }
-
+        
     startGame();
     })
 
