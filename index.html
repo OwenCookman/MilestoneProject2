@@ -27,7 +27,7 @@
             <div class="col-sm-2 col-md-3 col-lg-4" id="restart">
                 <i class="fas fa-redo-alt"></i>
             </div>
-            <div class="col-sm-2 col-md-3 col-lg-4" id="timer">
+            <div class="col-sm-2 col-md-3 col-lg-4">
                 <span id="hours">0</span>:<span id="minutes">0</span>:<span id="seconds">0</span>
             </div>
         </div>
@@ -81,6 +81,26 @@
                 <i class="fas fa-archway"></i>
             </div>
         </div>
+        <div class="modal" tabindex="-1" role="dialog" id="congratulations">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Congratulations!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>You completed the game in <span id="hours">0</span>:<span id="minutes">0</span>:<span id="seconds">0</span> </p>
+                      <p>And <span id="moves">0</span> moves.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
