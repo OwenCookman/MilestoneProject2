@@ -23,43 +23,45 @@ $(document).ready(function () {
     function startGame() {
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
-            dificulty();
+            /**dificulty();*/
         }
     }
-
-    function dificulty() {
-        if ("#easy" = true) {
-            $("#seconds").removeClass("hidden");
-            $("#minutes").removeClass("hidden");
-            $("#hours").removeClass("hidden");
-            $("#countdown").addClass("hidden");
-        } 
-        if ("#medium" = true) {
-            countdownTimer();
+    /** 
+        function dificulty() {
+            if ("#easy" = true) {
+                $("#seconds").removeClass("hidden");
+                $("#minutes").removeClass("hidden");
+                $("#hours").removeClass("hidden");
+                $("#countdown").addClass("hidden");
+            } 
+            if ("#medium" = true) {
+                countdownTimer();
+            }
+            if ("#hard" = true) {
+                countdownTimer();
+                hardDifficulty();
+            }
         }
-        if ("#hard" = true) {
-            countdownTimer();
-            hardDifficulty();
+    
+        function countdownTimer() {
+                $("#seconds").addClass("hidden");
+                $("#minutes").addClass("hidden");
+                $("#hours").addClass("hidden");
+                $("#countdown").removeClass("hidden");
+        } if (moves == 2) {
+            downTimer = setInterval (function() {
+            countDown --;
+        }, 1000);
+            $("#countdown")[0].innerHTML = countDown;
+        } if (countdown == 0) {
+            $("#loser").modal("show");
         }
-    }
+    
+        function hardDifficulty() {
+            $("#lives").removeClass("hidden");
+        }
+        */
 
-    function countdownTimer() {
-            $("#seconds").addClass("hidden");
-            $("#minutes").addClass("hidden");
-            $("#hours").addClass("hidden");
-            $("#countdown").removeClass("hidden");
-    } if (moves == 2) {
-        downTimer = setInterval (function() {
-        countDown --;
-    }, 1000);
-        $("#countdown")[0].innerHTML = countDown;
-    } if (countdown == 0) {
-        $("#loser").modal("show");
-    }
-
-    function hardDifficulty() {
-        $("#lives").removeClass("hidden");
-    }
     /**
      * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
@@ -123,22 +125,30 @@ $(document).ready(function () {
             moved();
             time();
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
-                $(flippedCards).addClass("matched");
-                $(flippedCards).removeClass("flip");
-                (matchedCards).push(flippedCards);
+                match();
                 complete();
             } else {
-                $(flippedCards).addClass("not-match");
-                $(flippedCards).removeClass("flip");
-                $(".game-card").addClass("disable");
-                setTimeout(function () {
-                    $(".game-card").removeClass("not-match");
-                    $(".game-card").removeClass("disable");
-                    $(".matched").addClass("disable");
-                }, 1100);
+               notMatch();
             }
             flippedCards.length = 0;
         }
+    }
+
+    function match() {
+        $(flippedCards).addClass("matched");
+        $(flippedCards).removeClass("flip");
+        (matchedCards).push(flippedCards);
+    }
+
+    function notMatch() {
+        $(flippedCards).addClass("not-match");
+        $(flippedCards).removeClass("flip");
+        $(".game-card").addClass("disable");
+        setTimeout(function () {
+            $(".game-card").removeClass("not-match");
+            $(".game-card").removeClass("disable");
+            $(".matched").addClass("disable");
+        }, 1100);
     }
 
     /**
