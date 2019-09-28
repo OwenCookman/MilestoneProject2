@@ -13,6 +13,10 @@ body {
     height: 605px;
 }
 
+.hidden {
+    display: none;
+}
+
 .deck {
 width: 600px;
 height: 600px;
