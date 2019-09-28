@@ -154,9 +154,9 @@ $(document).ready(function () {
     }
 
     function record() {
-        if (finishMoves <= recordMoves) {
+        if (finishMoves < recordMoves) {
             window.localStorage.setItem("recMove", moves);
-        } if (finishHours <= recordHours) {
+        } if (finishHours < recordHours) {
             window.localStorage.setItem("recHour", hours);
         } if (finishMinutes < recordMinutes) {
             window.localStorage.setItem("recMin", minutes);
@@ -168,7 +168,6 @@ $(document).ready(function () {
         $("#record-hours")[0].innerHTML = JSON.parse(window.localStorage.getItem("recHour"));
         $("#record-moves")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMove"));
     }
-
 
         $("#replay").click(replay);
 
