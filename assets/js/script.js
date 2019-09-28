@@ -7,6 +7,7 @@ $(document).ready(function () {
     var seconds = 0;
     var minutes = 0;
     var hours = 0;
+    var countDown = 60;
     var finishMoves = 0;
     var finishSeconds = 0;
     var finishMinutes = 0;
@@ -22,9 +23,43 @@ $(document).ready(function () {
     function startGame() {
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
+            dificulty();
         }
     }
 
+    function dificulty() {
+        if ("#easy" = true) {
+            $("#seconds").removeClass("hidden");
+            $("#minutes").removeClass("hidden");
+            $("#hours").removeClass("hidden");
+            $("#countdown").addClass("hidden");
+        } 
+        if ("#medium" = true) {
+            countdownTimer();
+        }
+        if ("#hard" = true) {
+            countdownTimer();
+            hardDifficulty();
+        }
+    }
+
+    function countdownTimer() {
+            $("#seconds").addClass("hidden");
+            $("#minutes").addClass("hidden");
+            $("#hours").addClass("hidden");
+            $("#countdown").removeClass("hidden");
+    } if (moves == 2) {
+        downTimer = setInterval (function() {
+        countDown --;
+    }, 1000);
+        $("#countdown")[0].innerHTML = countDown;
+    } if (countdown == 0) {
+        $("#loser").modal("show");
+    }
+
+    function hardDifficulty() {
+        $("#lives").removeClass("hidden");
+    }
     /**
      * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
@@ -34,7 +69,7 @@ $(document).ready(function () {
      */
     $("#restart").click(restart);
 
-        function restart() {
+    function restart() {
         startGame();
         $(".game-card").removeClass("matched");
         $(".game-card").removeClass("disable");
@@ -49,7 +84,7 @@ $(document).ready(function () {
         hours = 0;
         $("#hours")[0].innerHTML = hours;
         clearInterval(timer);
-        }
+    }
 
     /**
      * Targets all elements with class game-card
@@ -169,15 +204,15 @@ $(document).ready(function () {
         $("#record-moves")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMove"));
     }
 
-        $("#replay").click(replay);
+    $("#replay").click(replay);
 
-        function replay() {
-            $("#congratulations").modal("hide");
-            restart();
-        }
+    function replay() {
+        $("#congratulations").modal("hide");
+        restart();
+    }
 
     startGame();
-    })
+})
 
 
 
