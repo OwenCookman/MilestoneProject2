@@ -15,37 +15,42 @@
 
     <header>
         <h1>Test Your Memory!</h1>
+        <!-- Difficulty selector-->
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                  <input type="radio" name="options" id="easy" autocomplete="off" checked> Easy
-                </label>
-                <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="medium" autocomplete="off"> Medium
-                </label>
-                <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="hard" autocomplete="off"> Hard
-                </label>
-              </div>
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="easy" autocomplete="off" checked> Easy
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="medium" autocomplete="off"> Medium
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="hard" autocomplete="off"> Hard
+            </label>
+        </div>
     </header>
-
     <section class="container game-board">
         <div class="row">
+            <!-- Move counter-->
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <p class="move-counter">Move(s):
                     <span id="moves">0</span>
                 </p>
             </div>
+            <!-- Restart button-->
             <div class="col-sm-2 col-md-3 col-lg-4" id="restart">
                 <i class="fas fa-redo-alt"></i>
             </div>
+            <!-- Timer for easy & timer for Medium/Hard-->
             <div class="col-sm-2 col-md-3 col-lg-4">
                 <span id="hours">0</span>:<span id="minutes">0</span>:<span id="seconds">0</span>
-                <span class = "hidden" id ="countdown">60</span>
+                <span class="hidden" id="countdown">60</span>
             </div>
+            <!-- Life counter-->
             <div class="col">
-                <i class ="fas fa-heart life-counter" id="lives"><span class="life"> 3</span></i>
+                <i class="fas fa-heart life-counter" id="lives"><span class="life"> 3</span></i>
             </div>
         </div>
+        <!-- Game deck/cards-->
         <div class="row deck">
             <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="ball">
                 <i class="fas fa-baseball-ball"></i>
@@ -96,52 +101,54 @@
                 <i class="fas fa-archway"></i>
             </div>
         </div>
-        
+        <!-- Congratulations modal-->
         <div class="modal" tabindex="-1" role="dialog" id="congratulations">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Congratulations!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                        <h5 class="modal-title">Congratulations!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                      <p>You completed the game in <span id="finish-hours">0</span>:<span id="finish-minutes">0</span>:<span id="finish-seconds">0</span></p>
-                      <p>And <span id="finish-moves">0</span> moves.</p>
-                      <p>Your record time is <span id="record-hours">0</span>:<span id="record-minutes">0</span>:<span id="record-seconds">0</span></p>
-                      <p >Your record moves are <span id="record-moves">0</span> moves.</p>
+                        <p>You completed the game in <span id="finish-hours">0</span>:<span
+                                id="finish-minutes">0</span>:<span id="finish-seconds">0</span></p>
+                        <p>And <span id="finish-moves">0</span> moves.</p>
+                        <p>Your record time is <span id="record-hours">0</span>:<span id="record-minutes">0</span>:<span
+                                id="record-seconds">0</span></p>
+                        <p>Your record moves are <span id="record-moves">0</span> moves.</p>
                     </div>
                     <div class="modal-footer">
                         <div class="replay">
-                     <p>Play Again?</p>
-                      <i class = "fas fa-redo-alt" id="replay"></i>
+                            <p>Play Again?</p>
+                            <i class="fas fa-redo-alt" id="replay"></i>
+                        </div>
                     </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-
-              <div class="modal" tabindex="-1" role="dialog" id="loser">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">You lose!</h5>
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p>You didnt finish the game in under 60 seconds!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="replay">
-                         <p>Play Again?</p>
-                          <i class = "fas fa-redo-alt" id="replay"></i>
-                        </div>
-                        </div>
-                      </div>
+            </div>
+        </div>
+        <!-- Loser modal-->
+        <div class="modal" tabindex="-1" role="dialog" id="loser">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You lose!</h5>
+                        <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                  </div>
+                    <div class="modal-body">
+                        <p>You didnt finish the game in under 60 seconds!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="replay">
+                            <p>Play Again?</p>
+                            <i class="fas fa-redo-alt" id="replay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
