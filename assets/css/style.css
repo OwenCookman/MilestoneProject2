@@ -13,6 +13,16 @@ body {
     height: 605px;
 }
 
+.life-counter {
+    color: #ff0000;
+    font-size: 3rem;
+}
+
+.life {
+    color: #ffebcd;
+    font-size: 2rem;
+}
+
 .hidden {
     display: none;
 }
