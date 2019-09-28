@@ -53,9 +53,6 @@ Below are my first drafted ideas of how the page would look and work, these were
 ### Instructions Modal
 
 
-### Start Button
-
-
 ### The Game 
 
 
@@ -121,7 +118,7 @@ GitHub pages was used to deploy this project using the following steps:
 
 **To deploy the page locally**
 
-1. Use [**this**](https://github.com/OwenCookman/Milestone-project-1) link to go to the **repository**
+1. Use [**this**](https://github.com/OwenCookman/Milestoneproject2) link to go to the **repository**
 2. Above the repository files select the green button that says **Clone or download**
 3. Select the **copy to clip board** image next to the URL to copy the URL to your clip board
 4. Using your **local IDE** open a **Git terminal**
@@ -129,6 +126,8 @@ GitHub pages was used to deploy this project using the following steps:
 6. Type **git clone** and **paste** the URL you copied from GitHub
 
 ## Credits
+
+I would like to credit user Alexey Lebedev on [**Stack Overflow**](https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order?fbclid=IwAR1w-IDlqpvp22TWQQBhF4QQBndle4ikf6vEgWK4DIcW75yCZmN_m2jQY94) for the Shuffle function that was used in this project.
 
 ### Content
 
