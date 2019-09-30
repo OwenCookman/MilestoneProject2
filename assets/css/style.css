@@ -12,14 +12,9 @@ body {
     text-align: center;
 }
 
-.dificulty-selector {
+.difficulty-selector {
     display: block;
     margin: 0 auto;
-}
-
-.game-board {
-    width: 605px;
-    height: 605px;
 }
 
 .life-counter {
