@@ -44,8 +44,7 @@ background-color: #212121;
     .deck {
         width: 400px;
         height: 400px;
-    }
-    
+    }  
 }
 
 .game-card {
@@ -64,11 +63,11 @@ justify-content: center;
 
 .game-card i {
     position: absolute;
-    left: 50%;
-    margin-left: -35%;
+    margin: auto;
+    top: 2rem;
+    left: 0;
+    right: 0;
     color: #212121;
-    top: 50%;
-    margin-top: 35%;
 }
 
 .flip {
