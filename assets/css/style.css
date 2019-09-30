@@ -8,17 +8,28 @@ body {
     color: #ffebcd;
 }
 
+.page-title {
+    text-align: center;
+}
+
+.dificulty-selector {
+    display: block;
+    margin: 0 auto;
+}
+
 .game-board {
     width: 605px;
     height: 605px;
 }
 
 .life-counter {
+    text-align: center;
     color: #ff0000;
     font-size: 3rem;
 }
 
 .life {
+    text-align: center;
     color: #ffebcd;
     font-size: 2rem;
 }
