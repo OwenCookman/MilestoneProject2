@@ -16,25 +16,25 @@
     <header>
         <div class="container">
             <div class="row">
-        <h1 class ="col page-title">Test Your Memory!</h1>
-    </div>
-        <!-- Difficulty selector-->
-        <div class="row dificulty-selector">
-        <div class="col btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active buttons">
-                <input type="radio" name="easy" id="easy" autocomplete="off" checked> Easy
-            </label>
-            <label class="btn btn-secondary buttons">
-                <input type="radio" name="medium" id="medium" autocomplete="off"> Medium
-            </label>
-            <label class="btn btn-secondary buttons">
-                <input type="radio" name="hard" id="hard" autocomplete="off"> Hard
-            </label>
+                <h1 class="col page-title">Test Your Memory!</h1>
+            </div>
+            <!-- Difficulty selector-->
+            <div class="row difficulty-selector">
+                <div class="col btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active buttons">
+                        <input type="radio" name="easy" id="easy" autocomplete="off" checked> Easy
+                    </label>
+                    <label class="btn btn-secondary buttons">
+                        <input type="radio" name="medium" id="medium" autocomplete="off"> Medium
+                    </label>
+                    <label class="btn btn-secondary buttons">
+                        <input type="radio" name="hard" id="hard" autocomplete="off"> Hard
+                    </label>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     </header>
-    <section class="container game-board">
+    <section class="container">
         <!-- Life counter-->
         <div class="row">
             <div class="col">
@@ -59,54 +59,88 @@
             </div>
         </div>
         <!-- Game deck/cards-->
-        <div class="row deck">
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="ball">
-                <i class="fas fa-baseball-ball"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bell">
-                <i class="fas fa-bell"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="sun">
-                <i class="fas fa-sun"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bug">
-                <i class="fas fa-bug"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bullseye">
-                <i class="fas fa-bullseye"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="anchor">
-                <i class="fas fa-anchor"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="car">
-                <i class="fas fa-car"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="archway">
-                <i class="fas fa-archway"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="ball">
-                <i class="fas fa-baseball-ball"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bell">
-                <i class="fas fa-bell"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="sun">
-                <i class="fas fa-sun"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bug">
-                <i class="fas fa-bug"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="bullseye">
-                <i class="fas fa-bullseye"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="anchor">
-                <i class="fas fa-anchor"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="car">
-                <i class="fas fa-car"></i>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 game-card card" data-type="archway">
-                <i class="fas fa-archway"></i>
+        <div class="container">
+            <div class="row deck">
+                <div class="col-6 col-md-4 game-card" data-type="ball">
+                    <div class="card">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bell">
+                    <div class="card">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="sun">
+                    <div class="card">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bug">
+                    <div class="card">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bullseye">
+                    <div class="card">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="anchor">
+                    <div class="card">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="car">
+                    <div class="card">
+                        <i class="fas fa-car"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="archway">
+                    <div class="card">
+                        <i class="fas fa-archway"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="ball">
+                    <div class="card">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bell">
+                    <div class="card">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="sun">
+                    <div class="card">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bug">
+                    <div class="card">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="bullseye">
+                    <div class="card">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="anchor">
+                    <div class="card">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="car">
+                    <div class="card">
+                        <i class="fas fa-car"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 game-card" data-type="archway">
+                    <div class="card">
+                        <i class="fas fa-archway"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Congratulations modal-->
