@@ -17,50 +17,60 @@ $(document).ready(function () {
     let recordHours = JSON.parse(window.localStorage.getItem("recHour"));
     let recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
 
+
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
     function startGame() {
         for (let i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
-            /**dificulty();*/
-        }
+        };
     }
-    /** 
-        function dificulty() {
-            if ("#easy" = true) {
-                $("#seconds").removeClass("hidden");
-                $("#minutes").removeClass("hidden");
-                $("#hours").removeClass("hidden");
-                $("#countdown").addClass("hidden");
-            } 
-            if ("#medium" = true) {
+    $('.buttons').click(function () {
+        difficulty(this.id);
+    });
+
+    function difficulty(value) {
+        switch (value) {
+            case 'easy':
+                easyDifficulty();
+                break;
+            case 'medium':
                 countdownTimer();
-            }
-            if ("#hard" = true) {
+                break;
+            case 'hard':
                 countdownTimer();
                 hardDifficulty();
-            }
+
+            default:
+                break;
         }
-    
-        function countdownTimer() {
-                $("#seconds").addClass("hidden");
-                $("#minutes").addClass("hidden");
-                $("#hours").addClass("hidden");
-                $("#countdown").removeClass("hidden");
-        } if (moves == 2) {
-            downTimer = setInterval (function() {
-            countDown --;
+    };
+
+    function countdownTimer() {
+        $("#seconds").addClass("hidden");
+        $("#minutes").addClass("hidden");
+        $("#hours").addClass("hidden");
+        $("#countdown").removeClass("hidden");
+    } if (moves == 2) {
+        downTimer = setInterval(function () {
+            countDown--;
         }, 1000);
-            $("#countdown")[0].innerHTML = countDown;
-        } if (countdown == 0) {
-            $("#loser").modal("show");
-        }
-    
-        function hardDifficulty() {
-            $("#lives").removeClass("hidden");
-        }
-        */
+        $("#countdown")[0].innerHTML = countDown;
+    } if (countdown == 0) {
+        $("#loser").modal("show");
+    };
+
+    function hardDifficulty() {
+        $("#lives").removeClass("hidden");
+    };
+
+    function easyDifficulty() {
+        $("#seconds").removeClass("hidden");
+        $("#minutes").removeClass("hidden");
+        $("#hours").removeClass("hidden");
+        $("#countdown").addClass("hidden");
+    };
 
     /**
      * Targets the HTML element with ID of restart 
@@ -86,7 +96,7 @@ $(document).ready(function () {
         hours = 0;
         $("#hours")[0].innerHTML = hours;
         clearInterval(timer);
-    }
+    };
 
     /**
      * Targets all elements with class game-card
@@ -98,7 +108,7 @@ $(document).ready(function () {
         $(this).toggleClass("disable");
         (flippedCards).push(this);
         checkMatch(flippedCards);
-    })
+    });
 
     /**
      * When called this function increases the variable moves value by 1
@@ -107,7 +117,7 @@ $(document).ready(function () {
     function moved() {
         moves++;
         $("#moves")[0].innerHTML = moves;
-    }
+    };
 
     /**
      * When called this function will check if the length of the flippedCards array is 2
@@ -128,17 +138,17 @@ $(document).ready(function () {
                 match();
                 complete();
             } else {
-               notMatch();
+                notMatch();
             }
             flippedCards.length = 0;
         }
-    }
+    };
 
     function match() {
         $(flippedCards).addClass("matched");
         $(flippedCards).removeClass("flip");
         (matchedCards).push(flippedCards);
-    }
+    };
 
     function notMatch() {
         $(flippedCards).addClass("not-match");
@@ -149,7 +159,7 @@ $(document).ready(function () {
             $(".game-card").removeClass("disable");
             $(".matched").addClass("disable");
         }, 1100);
-    }
+    };
 
     /**
      * When called this function checks if the variable moves is = to 1
@@ -179,7 +189,7 @@ $(document).ready(function () {
                 }
             }, 1000);
         }
-    }
+    };
 
     function complete() {
         if (matchedCards.length == [8]) {
@@ -196,33 +206,34 @@ $(document).ready(function () {
             record()
             matchedCards.length = 0;
         }
-    }
+    };
 
     function record() {
         if (finishMoves < recordMoves) {
             window.localStorage.setItem("recMove", moves);
-        } if (finishHours < recordHours) {
-            window.localStorage.setItem("recHour", hours);
-        } if (finishMinutes < recordMinutes) {
-            window.localStorage.setItem("recMin", minutes);
-        } if (finishSeconds < recordSeconds) {
-            window.localStorage.setItem("recSec", seconds);
+        } else {
         }
-        $("#record-seconds")[0].innerHTML = 
-        $("#record-minutes")[0].innerHTML = 
-        $("#record-hours")[0].innerHTML = 
-        $("#record-moves")[0].innerHTML = 
-    }
+        if (finishHours <= recordHours) {
+            window.localStorage.setItem("recHour", hours);
+        } if (finishMinutes <= recordMinutes) {
+            window.localStorage.setItem("recMin", minutes);
+        } if (finishSeconds <= recordSeconds) {
+            window.localStorage.setItem("recSec", seconds);
+        } else {
+        }
+        $("#record-seconds")[0].innerHTML = recordSeconds;
+        $("#record-minutes")[0].innerHTML = recordMinutes;
+        $("#record-hours")[0].innerHTML = recordHours;
+        $("#record-moves")[0].innerHTML = recordMoves;
+    };
 
-    $("#replay").click(replay());
-
-    function replay() {
+    $("#replay").click(function () {
         $("#congratulations").modal("hide");
         restart();
-    }
+    });
 
     startGame();
-})
+});
 
 
 
