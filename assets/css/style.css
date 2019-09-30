@@ -49,12 +49,9 @@ background-color: #212121;
 
 .game-card {
 font-size: 0rem; 
-text-align: center;
 background-color: #8b0000;
 margin: 5px;
-position: relative;
 max-width: 120px;
-justify-content: center;
 }
 
 .card {
