@@ -3,25 +3,25 @@ $(document).ready(function () {
     const flippedCards = [];
     const matchedCards = [];
     const cards = document.querySelector(".deck");
-    var moves = 0;
-    var seconds = 0;
-    var minutes = 0;
-    var hours = 0;
-    var countDown = 60;
-    var finishMoves = 0;
-    var finishSeconds = 0;
-    var finishMinutes = 0;
-    var finishHours = 0;
-    var recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
-    var recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
-    var recordHours = JSON.parse(window.localStorage.getItem("recHour"));
-    var recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
+    let moves = 0;
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+    let countDown = 60;
+    let finishMoves = 0;
+    let finishSeconds = 0;
+    let finishMinutes = 0;
+    let finishHours = 0;
+    let recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
+    let recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
+    let recordHours = JSON.parse(window.localStorage.getItem("recHour"));
+    let recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
 
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
     function startGame() {
-        for (var i = cards.children.length; i >= 0; i--) {
+        for (let i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
             /**dificulty();*/
         }
@@ -208,13 +208,13 @@ $(document).ready(function () {
         } if (finishSeconds < recordSeconds) {
             window.localStorage.setItem("recSec", seconds);
         }
-        $("#record-seconds")[0].innerHTML = JSON.parse(window.localStorage.getItem("recSec"));
-        $("#record-minutes")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMin"));
-        $("#record-hours")[0].innerHTML = JSON.parse(window.localStorage.getItem("recHour"));
-        $("#record-moves")[0].innerHTML = JSON.parse(window.localStorage.getItem("recMove"));
+        $("#record-seconds")[0].innerHTML = 
+        $("#record-minutes")[0].innerHTML = 
+        $("#record-hours")[0].innerHTML = 
+        $("#record-moves")[0].innerHTML = 
     }
 
-    $("#replay").click(replay);
+    $("#replay").click(replay());
 
     function replay() {
         $("#congratulations").modal("hide");
