@@ -1,4 +1,4 @@
-# Test your Memory! memory game
+# Memory game
 
 Click [here](https://owencookman.github.io/MilestoneProject2/) to view the deployed website.
 
