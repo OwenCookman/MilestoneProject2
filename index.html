@@ -14,9 +14,13 @@
 <body>
 
     <header>
-        <h1>Test Your Memory!</h1>
+        <div class="container">
+            <div class="row">
+        <h1 class ="col page-title">Test Your Memory!</h1>
+    </div>
         <!-- Difficulty selector-->
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <div class="row theme-selector">
+        <div class="col btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
                 <input type="radio" name="options" id="easy" autocomplete="off" checked> Easy
             </label>
@@ -27,27 +31,31 @@
                 <input type="radio" name="options" id="hard" autocomplete="off"> Hard
             </label>
         </div>
+    </div>
+    </div>
     </header>
     <section class="container game-board">
+        <!-- Life counter-->
+        <div class="row">
+            <div class="col">
+                <i class="fas fa-heart life-counter" id="lives"><span class="life"> 3</span></i>
+            </div>
+        </div>
         <div class="row">
             <!-- Move counter-->
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-4">
                 <p class="move-counter">Move(s):
                     <span id="moves">0</span>
                 </p>
             </div>
             <!-- Restart button-->
-            <div class="col-sm-2 col-md-3 col-lg-4" id="restart">
+            <div class="col-4" id="restart">
                 <i class="fas fa-redo-alt"></i>
             </div>
             <!-- Timer for easy & timer for Medium/Hard-->
-            <div class="col-sm-2 col-md-3 col-lg-4">
+            <div class="col-4">
                 <span id="hours">0</span>:<span id="minutes">0</span>:<span id="seconds">0</span>
                 <span class="hidden" id="countdown">60</span>
-            </div>
-            <!-- Life counter-->
-            <div class="col">
-                <i class="fas fa-heart life-counter" id="lives"><span class="life"> 3</span></i>
             </div>
         </div>
         <!-- Game deck/cards-->
