@@ -27,8 +27,8 @@ $(document).ready(function () {
     function startGame() {
         for (let i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
-        };
-    }
+        }
+    };
     $(".buttons").click(function() {
         difficulty(this.children[0].id);
     });
@@ -137,6 +137,7 @@ $(document).ready(function () {
                     timerDown = setInterval(function () {
                         countDown--;
                     }, 1000);
+                }
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 match();
                 complete();
