@@ -235,6 +235,7 @@ $(document).ready(function () {
         if (matchedCards.length == [8]) {
             $("#congratulations").modal("show");
             clearInterval(timer);
+            clearInterval(diffTimer);
             $("#finish-seconds")[0].innerHTML = seconds;
             $("#finish-minutes")[0].innerHTML = minutes;
             $("#finish-hours")[0].innerHTML = hours;
