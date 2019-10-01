@@ -156,7 +156,7 @@ $(document).ready(function () {
                 if (countDown == 30) {
                     $("#countdown").css("color", "#ffbf00")
                 }
-                if (countDown == 15) {
+                if (countDown == 10) {
                     $("#countdown").css("color", "#ff0000")
                 }
                 if (countDown == 0) {
