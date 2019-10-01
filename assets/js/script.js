@@ -253,6 +253,7 @@ $(document).ready(function () {
 
     $(".replay").click(function () {
         $("#congratulations").modal("hide");
+        $("#loser").modal("hide");
         restart();
     });
 
