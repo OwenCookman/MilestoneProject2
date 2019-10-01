@@ -17,7 +17,7 @@ body {
     margin-top: 80px;
 }
 
-@media (max-width: 411px) {
+@media (max-width: 574px) {
     .flip-device {
         display: block;
     }
