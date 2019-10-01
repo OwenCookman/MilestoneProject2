@@ -26,8 +26,8 @@ $(document).ready(function () {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         };
     }
-    $('.buttons').click(function () {
-        difficulty(this.id);
+    $(".buttons").click(function() {
+        difficulty(this.children[0].id);
     });
 
     function difficulty(value) {
@@ -48,11 +48,9 @@ $(document).ready(function () {
     };
 
     function countdownTimer() {
-        $("#seconds").addClass("hidden");
-        $("#minutes").addClass("hidden");
-        $("#hours").addClass("hidden");
+        $(".timer").addClass("hidden");
         $("#countdown").removeClass("hidden");
-    } if (moves == 2) {
+    } if (flippedCards.length == 2) {
         downTimer = setInterval(function () {
             countDown--;
         }, 1000);
@@ -66,10 +64,9 @@ $(document).ready(function () {
     };
 
     function easyDifficulty() {
-        $("#seconds").removeClass("hidden");
-        $("#minutes").removeClass("hidden");
-        $("#hours").removeClass("hidden");
+        $(".timer").removeClass("hidden");
         $("#countdown").addClass("hidden");
+        $("#lives").addClass("hidden");
     };
 
     /**
