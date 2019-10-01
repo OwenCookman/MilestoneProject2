@@ -50,7 +50,8 @@ $(document).ready(function () {
     function countdownTimer() {
         $(".timer").addClass("hidden");
         $("#countdown").removeClass("hidden");
-    } if (flippedCards.length == 2) {
+    }
+    if (moved()) {
         downTimer = setInterval(function () {
             countDown--;
         }, 1000);
@@ -93,7 +94,7 @@ $(document).ready(function () {
         $("#minutes")[0].innerHTML = minutes;
         hours = 0;
         $("#hours")[0].innerHTML = hours;
-        clearInterval(timer);
+        clearInterval(timer());
     };
 
     /**
