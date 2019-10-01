@@ -54,10 +54,11 @@ $(document).ready(function () {
         downTimer = setInterval(function () {
             countDown--;
         }, 1000);
-        $("#countdown")[0].innerHTML = countDown;
     } if (countdown == 0) {
         $("#loser").modal("show");
     };
+
+    $("#countdown")[0].innerHTML = countDown;
 
     function hardDifficulty() {
         $("#lives").removeClass("hidden");
