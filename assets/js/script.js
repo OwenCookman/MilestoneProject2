@@ -3,7 +3,10 @@ $(document).ready(function () {
     const flippedCards = [];
     const matchedCards = [];
     const cards = document.querySelector(".deck");
+    let selectedDificulty = "easy";
     let moves = 0;
+    let timer = null;
+    let timerDown = null;
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
@@ -34,13 +37,16 @@ $(document).ready(function () {
         switch (value) {
             case 'easy':
                 easyDifficulty();
+                selectedDificulty = "easy";
                 break;
             case 'medium':
                 countdownTimer();
+                selectedDificulty = "medium";
                 break;
             case 'hard':
                 countdownTimer();
                 hardDifficulty();
+                selectedDificulty = "hard";
 
             default:
                 break;
@@ -50,13 +56,6 @@ $(document).ready(function () {
     function countdownTimer() {
         $(".timer").addClass("hidden");
         $("#countdown").removeClass("hidden");
-    }
-    if (moved()) {
-        downTimer = setInterval(function () {
-            countDown--;
-        }, 1000);
-    } if (countdown == 0) {
-        $("#loser").modal("show");
     };
 
     $("#countdown")[0].innerHTML = countDown;
@@ -70,6 +69,7 @@ $(document).ready(function () {
         $("#countdown").addClass("hidden");
         $("#lives").addClass("hidden");
     };
+ 
 
     /**
      * Targets the HTML element with ID of restart 
@@ -94,7 +94,7 @@ $(document).ready(function () {
         $("#minutes")[0].innerHTML = minutes;
         hours = 0;
         $("#hours")[0].innerHTML = hours;
-        clearInterval(timer());
+        clearInterval(timer);
     };
 
     /**
@@ -133,6 +133,10 @@ $(document).ready(function () {
         if (flippedCards.length == 2) {
             moved();
             time();
+            if (selectedDificulty == "medium" || "hard") {
+                    timerDown = setInterval(function () {
+                        countDown--;
+                    }, 1000);
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 match();
                 complete();
