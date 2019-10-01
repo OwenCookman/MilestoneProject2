@@ -251,7 +251,7 @@ $(document).ready(function () {
         $("#record-moves")[0].innerHTML = recordMoves;
     };
 
-    $("#replay").click(function () {
+    $(".replay").click(function () {
         $("#congratulations").modal("hide");
         restart();
     });
