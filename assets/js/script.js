@@ -6,7 +6,7 @@ $(document).ready(function () {
     let selectedDificulty = "easy";
     let moves = 0;
     let timer = null;
-    let timerDown = null;
+    let diffTimer = null;
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
@@ -29,7 +29,7 @@ $(document).ready(function () {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }
     };
-    $(".buttons").click(function() {
+    $(".buttons").click(function () {
         difficulty(this.children[0].id);
     });
 
@@ -58,8 +58,6 @@ $(document).ready(function () {
         $("#countdown").removeClass("hidden");
     };
 
-    $("#countdown")[0].innerHTML = countDown;
-
     function hardDifficulty() {
         $("#lives").removeClass("hidden");
     };
@@ -69,7 +67,7 @@ $(document).ready(function () {
         $("#countdown").addClass("hidden");
         $("#lives").addClass("hidden");
     };
- 
+
 
     /**
      * Targets the HTML element with ID of restart 
@@ -94,6 +92,10 @@ $(document).ready(function () {
         $("#minutes")[0].innerHTML = minutes;
         hours = 0;
         $("#hours")[0].innerHTML = hours;
+        countDown = 60;
+        $("#countdown")[0].innerHTML = countDown;
+        clearInterval(diffTimer);
+        $("#countdown").css("color", "#ffebcd")
         clearInterval(timer);
     };
 
@@ -133,11 +135,9 @@ $(document).ready(function () {
         if (flippedCards.length == 2) {
             moved();
             time();
-            if (selectedDificulty == "medium" || "hard") {
-                    timerDown = setInterval(function () {
-                        countDown--;
-                    }, 1000);
-                }
+            if (selectedDificulty === "medium" || selectedDificulty === "hard") {
+                timerDown();
+            }
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 match();
                 complete();
@@ -147,6 +147,26 @@ $(document).ready(function () {
             flippedCards.length = 0;
         }
     };
+
+    function timerDown() {
+        if (moves == 1) {
+            diffTimer = setInterval(function () {
+                countDown--;
+                $("#countdown")[0].innerHTML = countDown;
+                if (countDown == 30) {
+                    $("#countdown").css("color", "#ffbf00")
+                }
+                if (countDown == 15) {
+                    $("#countdown").css("color", "#ff0000")
+                }
+                if (countDown == 0) {
+                    clearInterval(diffTimer);
+                    $("#loser").modal("show");
+                    $(".game-card").addClass("disable");
+                }
+            }, 1000);
+        }
+    }
 
     function match() {
         $(flippedCards).addClass("matched");
