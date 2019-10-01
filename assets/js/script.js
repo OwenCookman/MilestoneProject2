@@ -7,6 +7,7 @@ $(document).ready(function () {
     let moves = 0;
     let timer = null;
     let diffTimer = null;
+    let lives = 3;
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
@@ -147,6 +148,13 @@ $(document).ready(function () {
                 complete();
             } else {
                 notMatch();
+                if (selectedDificulty === "hard") {
+                    lives--;
+                    $(".life").innerHTML[0] = lives;
+                    if (lives == 0) {
+                        loser();
+                    }
+                }
             }
             flippedCards.length = 0;
         }
@@ -164,12 +172,16 @@ $(document).ready(function () {
                     $("#countdown").css("color", "#ff0000")
                 }
                 if (countDown == 0) {
-                    clearInterval(diffTimer);
-                    $("#loser").modal("show");
-                    $(".game-card").addClass("disable");
+                    loser();
                 }
             }, 1000);
         }
+    }
+
+    function loser() {
+        clearInterval(diffTimer);
+        $("#loser").modal("show");
+        $(".game-card").addClass("disable");
     }
 
     function match() {
