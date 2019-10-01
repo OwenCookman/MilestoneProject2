@@ -41,13 +41,13 @@ $(document).ready(function () {
                 break;
             case 'medium':
                 countdownTimer();
+                mediumDifficulty();
                 selectedDificulty = "medium";
                 break;
             case 'hard':
                 countdownTimer();
                 hardDifficulty();
                 selectedDificulty = "hard";
-
             default:
                 break;
         }
@@ -60,6 +60,10 @@ $(document).ready(function () {
 
     function hardDifficulty() {
         $("#lives").removeClass("hidden");
+    };
+
+    function mediumDifficulty() {
+        $("#lives").addClass("hidden");
     };
 
     function easyDifficulty() {
