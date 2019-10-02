@@ -99,6 +99,8 @@ $(document).ready(function () {
         $("#hours")[0].innerHTML = hours;
         countDown = 60;
         $("#countdown")[0].innerHTML = countDown;
+        lives = 3;
+        $(".life")[0].innerHTML = lives;
         clearInterval(diffTimer);
         $("#countdown").css("color", "#ffebcd")
         clearInterval(timer);
@@ -146,135 +148,146 @@ $(document).ready(function () {
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
                 match();
                 complete();
+                lifeUp();
             } else {
                 notMatch();
-                if (selectedDificulty === "hard") {
-                    lives--;
-                    $(".life").innerHTML[0] = lives;
-                    if (lives == 0) {
-                        loser();
-                    }
-                }
-            }
-            flippedCards.length = 0;
-        }
-    };
-
-    function timerDown() {
-        if (moves == 1) {
-            diffTimer = setInterval(function () {
-                countDown--;
-                $("#countdown")[0].innerHTML = countDown;
-                if (countDown == 30) {
-                    $("#countdown").css("color", "#ffbf00")
-                }
-                if (countDown == 10) {
-                    $("#countdown").css("color", "#ff0000")
-                }
-                if (countDown == 0) {
+                lifeDown();
+                $(".life")[0].innerHTML = lives;
+                if (lives == 0) {
                     loser();
                 }
-            }, 1000);
+            }
         }
-    }
-
-    function loser() {
-        clearInterval(diffTimer);
-        $("#loser").modal("show");
-        $(".game-card").addClass("disable");
-    }
-
-    function match() {
-        $(flippedCards).addClass("matched");
-        $(flippedCards).removeClass("flip");
-        (matchedCards).push(flippedCards);
+        flippedCards.length = 0;
     };
 
-    function notMatch() {
-        $(flippedCards).addClass("not-match");
-        $(flippedCards).removeClass("flip");
-        $(".game-card").addClass("disable");
-        setTimeout(function () {
-            $(".game-card").removeClass("not-match");
-            $(".game-card").removeClass("disable");
-            $(".matched").addClass("disable");
-        }, 1100);
-    };
+function timerDown() {
+    if (moves == 1) {
+        diffTimer = setInterval(function () {
+            countDown--;
+            $("#countdown")[0].innerHTML = countDown;
+            if (countDown == 30) {
+                $("#countdown").css("color", "#ffbf00")
+            }
+            if (countDown == 10) {
+                $("#countdown").css("color", "#ff0000")
+            }
+            if (countDown == 0) {
+                loser();
+            }
+        }, 1000);
+    }
+};
 
-    /**
-     * When called this function checks if the variable moves is = to 1
-     * If so the variable seconds has 1 added to its value every 1000 milliseconds
-     * And displays in the inner HTML of the element with ID seconds
-     * If seconds value reaches 60 the variable minutes adds 1 to its value
-     * And displays in the inner HTML of the element with ID minutes
-     * If minutes value reaches 60 the variable hours adds 1 to its value
-     * And displays in the inner HTML of the element with ID hours
-     */
-    function time() {
-        if (moves == 1) {
-            timer = setInterval(function () {
-                seconds++;
+function loser() {
+    clearInterval(diffTimer);
+    $("#loser").modal("show");
+    $(".game-card").addClass("disable");
+};
+
+function match() {
+    $(flippedCards).addClass("matched");
+    $(flippedCards).removeClass("flip");
+    (matchedCards).push(flippedCards);
+};
+
+function notMatch() {
+    $(flippedCards).addClass("not-match");
+    $(flippedCards).removeClass("flip");
+    $(".game-card").addClass("disable");
+    setTimeout(function () {
+        $(".game-card").removeClass("not-match");
+        $(".game-card").removeClass("disable");
+        $(".matched").addClass("disable");
+    }, 1100);
+};
+
+function lifeUp() {
+    if (selectedDificulty === "hard") {
+        lives++;
+    }
+};
+
+function lifeDown() {
+    if (selectedDificulty === "hard") {
+        lives--;
+    }
+};
+
+/**
+ * When called this function checks if the variable moves is = to 1
+ * If so the variable seconds has 1 added to its value every 1000 milliseconds
+ * And displays in the inner HTML of the element with ID seconds
+ * If seconds value reaches 60 the variable minutes adds 1 to its value
+ * And displays in the inner HTML of the element with ID minutes
+ * If minutes value reaches 60 the variable hours adds 1 to its value
+ * And displays in the inner HTML of the element with ID hours
+ */
+function time() {
+    if (moves == 1) {
+        timer = setInterval(function () {
+            seconds++;
+            $("#seconds")[0].innerHTML = seconds;
+            if (seconds == 60) {
+                minutes++;
+                $("#minutes")[0].innerHTML = minutes;
+                seconds = 0;
                 $("#seconds")[0].innerHTML = seconds;
-                if (seconds == 60) {
-                    minutes++;
+                if (minutes == 60) {
+                    hours++;
+                    $("#hours")[0].innerHTML = hours;
+                    minutes = 0;
                     $("#minutes")[0].innerHTML = minutes;
-                    seconds = 0;
-                    $("#seconds")[0].innerHTML = seconds;
-                    if (minutes == 60) {
-                        hours++;
-                        $("#hours")[0].innerHTML = hours;
-                        minutes = 0;
-                        $("#minutes")[0].innerHTML = minutes;
-                    }
                 }
-            }, 1000);
-        }
-    };
+            }
+        }, 1000);
+    }
+};
 
-    function complete() {
-        if (matchedCards.length == [8]) {
-            $("#congratulations").modal("show");
-            clearInterval(timer);
-            clearInterval(diffTimer);
-            $("#finish-seconds")[0].innerHTML = seconds;
-            $("#finish-minutes")[0].innerHTML = minutes;
-            $("#finish-hours")[0].innerHTML = hours;
-            $("#finish-moves")[0].innerHTML = moves;
-            finishSeconds = seconds;
-            finishMinutes = minutes;
-            finishHours = hours;
-            finishMoves = moves;
-            record()
-            matchedCards.length = 0;
-        }
-    };
+function complete() {
+    if (matchedCards.length == [8]) {
+        $("#congratulations").modal("show");
+        clearInterval(timer);
+        clearInterval(diffTimer);
+        $("#finish-seconds")[0].innerHTML = seconds;
+        $("#finish-minutes")[0].innerHTML = minutes;
+        $("#finish-hours")[0].innerHTML = hours;
+        $("#finish-moves")[0].innerHTML = moves;
+        finishSeconds = seconds;
+        finishMinutes = minutes;
+        finishHours = hours;
+        finishMoves = moves;
+        record()
+        matchedCards.length = 0;
+    }
+};
 
-    function record() {
-        if (finishMoves < recordMoves) {
-            window.localStorage.setItem("recMove", moves);
-        } else {
-        }
-        if (finishHours <= recordHours) {
-            window.localStorage.setItem("recHour", hours);
-        } if (finishMinutes <= recordMinutes) {
-            window.localStorage.setItem("recMin", minutes);
-        } if (finishSeconds <= recordSeconds) {
-            window.localStorage.setItem("recSec", seconds);
-        } else {
-        }
-        $("#record-seconds")[0].innerHTML = recordSeconds;
-        $("#record-minutes")[0].innerHTML = recordMinutes;
-        $("#record-hours")[0].innerHTML = recordHours;
-        $("#record-moves")[0].innerHTML = recordMoves;
-    };
+function record() {
+    if (finishMoves < recordMoves) {
+        window.localStorage.setItem("recMove", moves);
+    } else {
+    }
+    if (finishHours <= recordHours) {
+        window.localStorage.setItem("recHour", hours);
+    } if (finishMinutes <= recordMinutes) {
+        window.localStorage.setItem("recMin", minutes);
+    } if (finishSeconds <= recordSeconds) {
+        window.localStorage.setItem("recSec", seconds);
+    } else {
+    }
+    $("#record-seconds")[0].innerHTML = recordSeconds;
+    $("#record-minutes")[0].innerHTML = recordMinutes;
+    $("#record-hours")[0].innerHTML = recordHours;
+    $("#record-moves")[0].innerHTML = recordMoves;
+};
 
-    $(".replay").click(function () {
-        $("#congratulations").modal("hide");
-        $("#loser").modal("hide");
-        restart();
-    });
+$(".replay").click(function () {
+    $("#congratulations").modal("hide");
+    $("#loser").modal("hide");
+    restart();
+});
 
-    startGame();
+startGame();
 });
 
 
