@@ -16,12 +16,7 @@ $(document).ready(function () {
     let finishSeconds = 0;
     let finishMinutes = 0;
     let finishHours = 0;
-    let recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
-    let recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
-    let recordHours = JSON.parse(window.localStorage.getItem("recHour"));
-    let recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
-
-
+    
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
@@ -268,35 +263,43 @@ $(document).ready(function () {
 
     function record() {
         if (recordMoves === null) {
-            window.localStorage.setItem("recMove", moves);
+            window.localStorage.setItem("recMove", finishMoves);
+            recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (recordHours === null) {
-            window.localStorage.setItem("recHour", hours);
+            window.localStorage.setItem("recHour", finishHours);
+            recordHours = JSON.parse(window.localStorage.getItem("recHour"));
             $("#record-hours")[0].innerHTML = recordHours;
         }
         if (recordMinutes === null) {
-            window.localStorage.setItem("recMin", minutes);
+            window.localStorage.setItem("recMin", finishMinutes);
+            recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
             $("#record-minutes")[0].innerHTML = recordMinutes;
         }
         if (recordSeconds === null) {
-            window.localStorage.setItem("recSec", seconds);
+            window.localStorage.setItem("recSec", finishSeconds);
+            recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
             $("#record-seconds")[0].innerHTML = recordSeconds;
         }
         if (finishMoves <= recordMoves) {
-            window.localStorage.setItem("recMove", moves);
+            window.localStorage.setItem("recMove", finishMoves);
+            recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (finishHours <= recordHours) {
-            window.localStorage.setItem("recHour", hours);
+            window.localStorage.setItem("recHour", finishHours);
+            recordHours = JSON.parse(window.localStorage.getItem("recHour"));
             $("#record-hours")[0].innerHTML = recordHours;
         }
         if (finishMinutes <= recordMinutes) {
-            window.localStorage.setItem("recMin", minutes);
+            window.localStorage.setItem("recMin", finishMinutes);
+            recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
             $("#record-minutes")[0].innerHTML = recordMinutes;
         }
         if (finishSeconds <= recordSeconds) {
-            window.localStorage.setItem("recSec", seconds);
+            window.localStorage.setItem("recSec", finishSeconds);
+            recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
             $("#record-seconds")[0].innerHTML = recordSeconds;
         }
     };
