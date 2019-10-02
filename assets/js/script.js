@@ -7,7 +7,7 @@ $(document).ready(function () {
     let moves = 0;
     let timer = null;
     let diffTimer = null;
-    let lives = 3;
+    let lives = 4;
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
@@ -16,6 +16,10 @@ $(document).ready(function () {
     let finishSeconds = 0;
     let finishMinutes = 0;
     let finishHours = 0;
+    let recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
+    let recordHours = JSON.parse(window.localStorage.getItem("recHour"));
+    let recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
+    let recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
     
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
@@ -97,7 +101,7 @@ $(document).ready(function () {
         $("#hours")[0].innerHTML = hours;
         countDown = 60;
         $("#countdown")[0].innerHTML = countDown;
-        lives = 3;
+        lives = 4;
         $(".life")[0].innerHTML = lives;
         clearInterval(diffTimer);
         $("#countdown").css("color", "#ffebcd")
@@ -264,7 +268,7 @@ $(document).ready(function () {
     function record() {
         if (recordMoves === null) {
             window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
+            recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (recordHours === null) {
@@ -284,7 +288,7 @@ $(document).ready(function () {
         }
         if (finishMoves <= recordMoves) {
             window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = JSON.parse(window.localStorage.getItem("recMoves"));
+            recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (finishHours <= recordHours) {
