@@ -158,7 +158,6 @@ $(document).ready(function () {
                 if (lives == 0) {
                     loser();
                 }
-
             }
             flippedCards.length = 0;
         }
@@ -180,13 +179,13 @@ $(document).ready(function () {
                 }
             }, 1000);
         }
-    }
+    };
 
     function loser() {
         clearInterval(diffTimer);
         $("#loser").modal("show");
         $(".game-card").addClass("disable");
-    }
+    };
 
     function match() {
         $(flippedCards).addClass("matched");
@@ -268,22 +267,38 @@ $(document).ready(function () {
     };
 
     function record() {
-        if (finishMoves < recordMoves) {
+        if (recordMoves === null) {
             window.localStorage.setItem("recMove", moves);
-        } else {
+            $("#record-moves")[0].innerHTML = recordMoves;
+        }
+        if (recordHours === null) {
+            window.localStorage.setItem("recHour", hours);
+            $("#record-hours")[0].innerHTML = recordHours;
+        }
+        if (recordMinutes === null) {
+            window.localStorage.setItem("recMin", minutes);
+            $("#record-minutes")[0].innerHTML = recordMinutes;
+        }
+        if (recordSeconds === null) {
+            window.localStorage.setItem("recSec", seconds);
+            $("#record-seconds")[0].innerHTML = recordSeconds;
+        }
+        if (finishMoves <= recordMoves) {
+            window.localStorage.setItem("recMove", moves);
+            $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (finishHours <= recordHours) {
             window.localStorage.setItem("recHour", hours);
-        } if (finishMinutes <= recordMinutes) {
-            window.localStorage.setItem("recMin", minutes);
-        } if (finishSeconds <= recordSeconds) {
-            window.localStorage.setItem("recSec", seconds);
-        } else {
+            $("#record-hours")[0].innerHTML = recordHours;
         }
-        $("#record-seconds")[0].innerHTML = recordSeconds;
-        $("#record-minutes")[0].innerHTML = recordMinutes;
-        $("#record-hours")[0].innerHTML = recordHours;
-        $("#record-moves")[0].innerHTML = recordMoves;
+        if (finishMinutes <= recordMinutes) {
+            window.localStorage.setItem("recMin", minutes);
+            $("#record-minutes")[0].innerHTML = recordMinutes;
+        }
+        if (finishSeconds <= recordSeconds) {
+            window.localStorage.setItem("recSec", seconds);
+            $("#record-seconds")[0].innerHTML = recordSeconds;
+        }
     };
 
     $(".replay").click(function () {
@@ -294,6 +309,3 @@ $(document).ready(function () {
 
     startGame();
 });
-
-
-
