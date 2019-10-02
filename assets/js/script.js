@@ -37,15 +37,18 @@ $(document).ready(function () {
     function difficulty(value) {
         switch (value) {
             case 'easy':
+                restart();
                 easyDifficulty();
                 selectedDificulty = "easy";
                 break;
             case 'medium':
+                restart();
                 countdownTimer();
                 mediumDifficulty();
                 selectedDificulty = "medium";
                 break;
             case 'hard':
+                restart();
                 countdownTimer();
                 hardDifficulty();
                 selectedDificulty = "hard";
@@ -152,10 +155,10 @@ $(document).ready(function () {
             } else {
                 notMatch();
                 lifeDown();
-                    if (lives == 0) {
-                        loser();
-                    }
-                
+                if (lives == 0) {
+                    loser();
+                }
+
             }
             flippedCards.length = 0;
         }
