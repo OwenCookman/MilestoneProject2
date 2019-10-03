@@ -12,10 +12,6 @@ $(document).ready(function () {
     let minutes = 0;
     let hours = 0;
     let countDown = 60;
-    let finishMoves = 0;
-    let finishSeconds = 0;
-    let finishMinutes = 0;
-    let finishHours = 0;
     let recordMoves = parseInt(window.localStorage.getItem("recMove"));
     let recordHours = parseInt(window.localStorage.getItem("recHour"));
     let recordMinutes = parseInt(window.localStorage.getItem("recMin"));
@@ -278,6 +274,15 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When called this function checks if the matchedCards array's length is 8
+     * If it is the modal with ID congratulations is shown
+     * The intervals set in the functions time() and downTimer() are cleared
+     * The element with the ID finish-seconds inner HTML is set to the variable seconds value
+     * The element with the ID finish-minutes inner HTML is set to the variable minutes value
+     * The element with the ID finish-hours inner HTML is set to the variable hours value
+     * The element with the ID finish-moves inner HTML is set to the variable moves value
+     */
     function complete() {
         if (matchedCards.length == 8) {
             $("#congratulations").modal("show");
@@ -287,10 +292,6 @@ $(document).ready(function () {
             $("#finish-minutes")[0].innerHTML = minutes;
             $("#finish-hours")[0].innerHTML = hours;
             $("#finish-moves")[0].innerHTML = moves;
-            finishSeconds = seconds;
-            finishMinutes = minutes;
-            finishHours = hours;
-            finishMoves = moves;
             record()
             matchedCards.length = 0;
         }
@@ -309,19 +310,19 @@ $(document).ready(function () {
         if (isNaN(recordSeconds)) {
             setSeconds();
         }
-        if (finishMoves < recordMoves) {
+        if (moves < recordMoves) {
             setMoves();
         }
-        if (finishHours < recordHours) {
+        if (hours < recordHours) {
             setHours();
             setMinutes();
             setSeconds();
         } else {
-            if (finishHours == recordHours && finishMinutes < recordMinutes) {
+            if (hours == recordHours && minutes < recordMinutes) {
                 setMinutes();
                 setSeconds();
             } else {
-                if (finishHours == recordHours && finishMinutes == recordMinutes && finishSeconds < recordSeconds) {
+                if (hours == recordHours && minutes == recordMinutes && seconds < recordSeconds) {
                     setSeconds();
                 }
             }
@@ -329,25 +330,25 @@ $(document).ready(function () {
     };
 
     function setMoves() {
-        window.localStorage.setItem("recMove", finishMoves);
+        window.localStorage.setItem("recMove", moves);
         recordMoves = parseInt(window.localStorage.getItem("recMove"));
         $("#record-moves")[0].innerHTML = recordMoves;
     };
 
     function setHours() {
-        window.localStorage.setItem("recHour", finishHours);
+        window.localStorage.setItem("recHour", hours);
         recordHours = parseInt(window.localStorage.getItem("recHour"));
         $("#record-hours")[0].innerHTML = recordHours;
     };
 
     function setMinutes() {
-        window.localStorage.setItem("recMin", finishMinutes);
+        window.localStorage.setItem("recMin", minutes);
         recordMinutes = parseInt(window.localStorage.getItem("recMin"));
         $("#record-minutes")[0].innerHTML = recordMinutes;
     };
 
     function setSeconds() {
-        window.localStorage.setItem("recSec", finishSeconds);
+        window.localStorage.setItem("recSec", seconds);
         recordSeconds = parseInt(window.localStorage.getItem("recSec"));
         $("#record-seconds")[0].innerHTML = recordSeconds;
     };
