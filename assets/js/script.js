@@ -3,7 +3,7 @@ $(document).ready(function () {
     const flippedCards = [];
     const matchedCards = [];
     const cards = document.querySelector(".deck");
-    let selectedDificulty = "easy";
+    let selectedDifficulty = "easy";
     let moves = 0;
     let timer = null;
     let diffTimer = null;
@@ -29,46 +29,70 @@ $(document).ready(function () {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }
     };
+    /**
+     * When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
+     */
     $(".buttons").click(function () {
         difficulty(this.children[0].id);
     });
 
+    /**
+     * If difficulty is set with the value of "easy" the restart and easyDifficulty functions are run
+     * And selectedDifficulty is set to "easy" and the function ends
+     * If difficulty is set with the value of "medium" the restart, countdownTimer and mediumDifficulty functions are run
+     * And selectedDifficulty is set to "medium" and the function ends
+     * If difficulty is set with the value of "hard" the restart, countdownTimer and hardDifficulty functions are run
+     * And selectedDifficulty is set to "hard" and the function ends
+     */
     function difficulty(value) {
         switch (value) {
-            case 'easy':
+            case "easy":
                 restart();
                 easyDifficulty();
-                selectedDificulty = "easy";
+                selectedDifficulty = "easy";
                 break;
-            case 'medium':
+            case "medium":
                 restart();
                 countdownTimer();
                 mediumDifficulty();
-                selectedDificulty = "medium";
+                selectedDifficulty = "medium";
                 break;
-            case 'hard':
+            case "hard":
                 restart();
                 countdownTimer();
                 hardDifficulty();
-                selectedDificulty = "hard";
+                selectedDifficulty = "hard";
             default:
                 break;
         }
     };
 
+    /**
+     * When called this function adds the class hidden to elements with the class timer
+     * And removes the class hidden from the element with the ID countdown
+     */
     function countdownTimer() {
         $(".timer").addClass("hidden");
         $("#countdown").removeClass("hidden");
     };
 
+    /**
+     * When called this function removes the class hidden from the element with the ID lives
+     */
     function hardDifficulty() {
         $("#lives").removeClass("hidden");
     };
 
+    /**
+     * When called this function adds the class hidden to the element with the ID lives
+     */
     function mediumDifficulty() {
         $("#lives").addClass("hidden");
     };
-
+    /**
+     * When called this function removes the class hidden from all elements with the class timer
+     * And adds the class hidden to the elements with the IDs countdown and lives
+     */
     function easyDifficulty() {
         $(".timer").removeClass("hidden");
         $("#countdown").addClass("hidden");
@@ -145,7 +169,7 @@ $(document).ready(function () {
         if (flippedCards.length == 2) {
             moved();
             time();
-            if (selectedDificulty === "medium" || selectedDificulty === "hard") {
+            if (selectedDifficulty === "medium" || selectedDifficulty === "hard") {
                 timerDown();
             }
             if (flippedCards[0].dataset.type == flippedCards[1].dataset.type) {
@@ -205,14 +229,14 @@ $(document).ready(function () {
     };
 
     function lifeUp() {
-        if (selectedDificulty === "hard") {
+        if (selectedDifficulty === "hard") {
             lives++;
             $(".life")[0].innerHTML = lives;
         }
     };
 
     function lifeDown() {
-        if (selectedDificulty === "hard") {
+        if (selectedDifficulty === "hard") {
             lives--;
             $(".life")[0].innerHTML = lives;
         }
@@ -268,45 +292,56 @@ $(document).ready(function () {
 
     function record() {
         if (isNaN(recordMoves)) {
-            window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = parseInt(window.localStorage.getItem("recMove"));
-            $("#record-moves")[0].innerHTML = recordMoves;
+            setMoves();
         }
         if (isNaN(recordHours)) {
-            window.localStorage.setItem("recHour", finishHours);
-            recordHours = parseInt(window.localStorage.getItem("recHour"));
-            $("#record-hours")[0].innerHTML = recordHours;
+            setHours();
         }
         if (isNaN(recordMinutes)) {
-            window.localStorage.setItem("recMin", finishMinutes);
-            recordMinutes = parseInt(window.localStorage.getItem("recMin"));
-            $("#record-minutes")[0].innerHTML = recordMinutes;
+            setMinutes();
         }
         if (isNaN(recordSeconds)) {
-            window.localStorage.setItem("recSec", finishSeconds);
-            recordSeconds = parseInt(window.localStorage.getItem("recSec"));
-            $("#record-seconds")[0].innerHTML = recordSeconds;
+            setSeconds();
         }
         if (finishMoves <= recordMoves) {
-            window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = parseInt(window.localStorage.getItem("recMove"));
-            $("#record-moves")[0].innerHTML = recordMoves;
+            setMoves();
         }
         if (finishHours <= recordHours) {
-            window.localStorage.setItem("recHour", finishHours);
-            recordHours = parseInt(window.localStorage.getItem("recHour"));
-            $("#record-hours")[0].innerHTML = recordHours;
+            setHours();
+            setMinutes();
+            setSeconds();
             if (finishMinutes <= recordMinutes) {
-                window.localStorage.setItem("recMin", finishMinutes);
-                recordMinutes = parseInt(window.localStorage.getItem("recMin"));
-                $("#record-minutes")[0].innerHTML = recordMinutes;
+                setMinutes();
+                setSeconds();
                 if (finishSeconds <= recordSeconds) {
-                    window.localStorage.setItem("recSec", finishSeconds);
-                    recordSeconds = parseInt(window.localStorage.getItem("recSec"));
-                    $("#record-seconds")[0].innerHTML = recordSeconds;
+                    setSeconds();
                 }
             }
         }
+    };
+
+    function setMoves() {
+        window.localStorage.setItem("recMove", finishMoves);
+        recordMoves = parseInt(window.localStorage.getItem("recMove"));
+        $("#record-moves")[0].innerHTML = recordMoves;
+    };
+
+    function setHours() {
+        window.localStorage.setItem("recHour", finishHours);
+        recordHours = parseInt(window.localStorage.getItem("recHour"));
+        $("#record-hours")[0].innerHTML = recordHours;
+    };
+
+    function setMinutes() {
+        window.localStorage.setItem("recMin", finishMinutes);
+        recordMinutes = parseInt(window.localStorage.getItem("recMin"));
+        $("#record-minutes")[0].innerHTML = recordMinutes;
+    };
+
+    function setSeconds() {
+        window.localStorage.setItem("recSec", finishSeconds);
+        recordSeconds = parseInt(window.localStorage.getItem("recSec"));
+        $("#record-seconds")[0].innerHTML = recordSeconds;
     };
 
     $(".replay").click(function () {
