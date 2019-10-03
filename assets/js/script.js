@@ -91,6 +91,7 @@ $(document).ready(function () {
         $(".game-card").removeClass("disable");
         $(".game-card").removeClass("flip");
         flippedCards.length = 0;
+        matchedCards.length = 0;
         moves = 0;
         $("#moves")[0].innerHTML = moves;
         seconds = 0;
@@ -101,10 +102,10 @@ $(document).ready(function () {
         $("#hours")[0].innerHTML = hours;
         countDown = 60;
         $("#countdown")[0].innerHTML = countDown;
+        $("#countdown").css("color", "#ffebcd")
         lives = 4;
         $(".life")[0].innerHTML = lives;
         clearInterval(diffTimer);
-        $("#countdown").css("color", "#ffebcd")
         clearInterval(timer);
     };
 
