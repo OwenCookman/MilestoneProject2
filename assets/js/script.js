@@ -142,6 +142,7 @@ $(document).ready(function () {
      */
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
+            console.log(matchedCards);
             moved();
             time();
             if (selectedDificulty === "medium" || selectedDificulty === "hard") {
