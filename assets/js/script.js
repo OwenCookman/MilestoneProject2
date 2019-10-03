@@ -187,7 +187,9 @@ $(document).ready(function () {
     /**
      * When called this function will check if moves has the value of 1
      * if it does an interval is set so that the variable countdown has 1 taken away from it every 1000 miliseconds
-     * If the countDown variable 
+     * If the countDown variable has the value of 30 the element with the ID countdown changes to a yellow color
+     * If the countDown variable has the value of 10 the element with the ID countdown changes to a red color
+     * If the countDown variable has the value of 0 the loser() function will run
      */
     function timerDown() {
         if (moves == 1) {
@@ -207,18 +209,29 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When this function is called the interval set in the downTimer() function is cleared
+     * The modal with ID loser is shown
+     * And all elements with the class game-card are given the class disable
+     */
     function loser() {
         clearInterval(diffTimer);
         $("#loser").modal("show");
         $(".game-card").addClass("disable");
     };
 
+    /**
+     * When this function is called the elements that are held in the flippedCards array are given the matched class
+     * And have the flip class removed
+     * the elements inside the flippedCards array are pushed in to the matchedCards array
+     */
     function match() {
         $(flippedCards).addClass("matched");
         $(flippedCards).removeClass("flip");
         (matchedCards).push(flippedCards);
     };
 
+    
     function notMatch() {
         $(flippedCards).addClass("not-match");
         $(flippedCards).removeClass("flip");
