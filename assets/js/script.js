@@ -16,11 +16,11 @@ $(document).ready(function () {
     let finishSeconds = 0;
     let finishMinutes = 0;
     let finishHours = 0;
-    let recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
-    let recordHours = JSON.parse(window.localStorage.getItem("recHour"));
-    let recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
-    let recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
-    
+    let recordMoves = parseInt(window.localStorage.getItem("recMove"));
+    let recordHours = parseInt(window.localStorage.getItem("recHour"));
+    let recordMinutes = parseInt(window.localStorage.getItem("recMin"));
+    let recordSeconds = parseInt(window.localStorage.getItem("recSec"));
+
     /**
      * Credit for this function goes to user Alexey Lebedev on Stack Overflow
      */
@@ -143,7 +143,6 @@ $(document).ready(function () {
      */
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
-            console.log(matchedCards);
             moved();
             time();
             if (selectedDificulty === "medium" || selectedDificulty === "hard") {
@@ -250,7 +249,7 @@ $(document).ready(function () {
     };
 
     function complete() {
-        if (matchedCards.length == [8]) {
+        if (matchedCards.length == 8) {
             $("#congratulations").modal("show");
             clearInterval(timer);
             clearInterval(diffTimer);
@@ -268,45 +267,45 @@ $(document).ready(function () {
     };
 
     function record() {
-        if (recordMoves === null) {
+        if (isNaN(recordMoves)) {
             window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
+            recordMoves = parseInt(window.localStorage.getItem("recMove"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
-        if (recordHours === null) {
+        if (isNaN(recordHours)) {
             window.localStorage.setItem("recHour", finishHours);
-            recordHours = JSON.parse(window.localStorage.getItem("recHour"));
+            recordHours = parseInt(window.localStorage.getItem("recHour"));
             $("#record-hours")[0].innerHTML = recordHours;
         }
-        if (recordMinutes === null) {
+        if (isNaN(recordMinutes)) {
             window.localStorage.setItem("recMin", finishMinutes);
-            recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
+            recordMinutes = parseInt(window.localStorage.getItem("recMin"));
             $("#record-minutes")[0].innerHTML = recordMinutes;
         }
-        if (recordSeconds === null) {
+        if (isNaN(recordSeconds)) {
             window.localStorage.setItem("recSec", finishSeconds);
-            recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
+            recordSeconds = parseInt(window.localStorage.getItem("recSec"));
             $("#record-seconds")[0].innerHTML = recordSeconds;
         }
         if (finishMoves <= recordMoves) {
             window.localStorage.setItem("recMove", finishMoves);
-            recordMoves = JSON.parse(window.localStorage.getItem("recMove"));
+            recordMoves = parseInt(window.localStorage.getItem("recMove"));
             $("#record-moves")[0].innerHTML = recordMoves;
         }
         if (finishHours <= recordHours) {
             window.localStorage.setItem("recHour", finishHours);
-            recordHours = JSON.parse(window.localStorage.getItem("recHour"));
+            recordHours = parseInt(window.localStorage.getItem("recHour"));
             $("#record-hours")[0].innerHTML = recordHours;
-        }
-        if (finishMinutes <= recordMinutes) {
-            window.localStorage.setItem("recMin", finishMinutes);
-            recordMinutes = JSON.parse(window.localStorage.getItem("recMin"));
-            $("#record-minutes")[0].innerHTML = recordMinutes;
-        }
-        if (finishSeconds <= recordSeconds) {
-            window.localStorage.setItem("recSec", finishSeconds);
-            recordSeconds = JSON.parse(window.localStorage.getItem("recSec"));
-            $("#record-seconds")[0].innerHTML = recordSeconds;
+            if (finishMinutes <= recordMinutes) {
+                window.localStorage.setItem("recMin", finishMinutes);
+                recordMinutes = parseInt(window.localStorage.getItem("recMin"));
+                $("#record-minutes")[0].innerHTML = recordMinutes;
+                if (finishSeconds <= recordSeconds) {
+                    window.localStorage.setItem("recSec", finishSeconds);
+                    recordSeconds = parseInt(window.localStorage.getItem("recSec"));
+                    $("#record-seconds")[0].innerHTML = recordSeconds;
+                }
+            }
         }
     };
 
