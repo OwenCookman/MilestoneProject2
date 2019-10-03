@@ -37,12 +37,12 @@ $(document).ready(function () {
     });
 
     /**
-     * If difficulty is set with the value of "easy" the restart and easyDifficulty functions are run
-     * And selectedDifficulty is set to "easy" and the function ends
-     * If difficulty is set with the value of "medium" the restart, countdownTimer and mediumDifficulty functions are run
-     * And selectedDifficulty is set to "medium" and the function ends
-     * If difficulty is set with the value of "hard" the restart, countdownTimer and hardDifficulty functions are run
-     * And selectedDifficulty is set to "hard" and the function ends
+     * If difficulty is set with the value of "easy" the restart() and easyDifficulty() functions are run
+     * selectedDifficulty is set to "easy" and the function ends
+     * If difficulty is set with the value of "medium" the restart(), countdownTimer() and mediumDifficulty() functions are run
+     * selectedDifficulty is set to "medium" and the function ends
+     * If difficulty is set with the value of "hard" the restart(), countdownTimer() and hardDifficulty() functions are run
+     * selectedDifficulty is set to "hard" and the function ends
      */
     function difficulty(value) {
         switch (value) {
@@ -104,8 +104,8 @@ $(document).ready(function () {
      * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
      * And removes any matched, disable and flip classes from any elements with the class game-card
-     * Sets the move counter back to 0 and the seconds, minutes and hours of the timer back to 0
-     * Then stops the interval used in the time() function
+     * Sets the move counter, seconds, minutes and hours of the timer back to 0, the countDown timer back to 60 and lives back to 4
+     * Then stops the interval used in the time() and timerDown() functions
      */
     $("#restart").click(restart);
 
@@ -157,12 +157,13 @@ $(document).ready(function () {
     /**
      * When called this function will check if the length of the flippedCards array is 2
      * If this return true it will call the moved() function to add 1 to the move counter
+     * And call the time() function to start the timer
+     * It then checks if the selectedDifficulty variable is set with the value "medium" or "hard"
+     * If it is then it runs the timerDown() function to start the countdown timer
      * It then checks the objects Data in the flippedCards array
-     * If they match it will add the class matched and remove flip
-     * If they dont match it will add the not-match class and remove the flip class
-     * As well as adding the disable class to all elements with the game-card class
-     * it will then wait 1100 miliseconds before removing not-match and disable from all cards
-     * Then reapply disable to any cards with the class matched
+     * If they match it will run the functions match() complete() and lifeUp()
+     * If they dont match it will run the functions notMatch() and lifeDown()
+     * If lives value is 0 the loser() function is called
      * Finally it will reset the flippedCards length to 0
      */
     function checkMatch(flippedCards) {
@@ -187,6 +188,11 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When called this function will check if moves has the value of 1
+     * if it does an interval is set so that the variable countdown has 1 taken away from it every 1000 miliseconds
+     * If the countDown variable 
+     */
     function timerDown() {
         if (moves == 1) {
             diffTimer = setInterval(function () {
@@ -303,17 +309,19 @@ $(document).ready(function () {
         if (isNaN(recordSeconds)) {
             setSeconds();
         }
-        if (finishMoves <= recordMoves) {
+        if (finishMoves < recordMoves) {
             setMoves();
         }
-        if (finishHours <= recordHours) {
+        if (finishHours < recordHours) {
             setHours();
             setMinutes();
             setSeconds();
-            if (finishMinutes <= recordMinutes) {
+        } else {
+            if (finishHours == recordHours && finishMinutes < recordMinutes) {
                 setMinutes();
                 setSeconds();
-                if (finishSeconds <= recordSeconds) {
+            } else {
+                if (finishHours == recordHours && finishMinutes == recordMinutes && finishSeconds < recordSeconds) {
                     setSeconds();
                 }
             }
