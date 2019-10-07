@@ -86,6 +86,7 @@ $(document).ready(function () {
     function mediumDifficulty() {
         $("#lives").addClass("hidden");
     };
+
     /**
      * When called this function removes the class hidden from all elements with the class timer
      * And adds the class hidden to the elements with the IDs countdown and lives
@@ -95,7 +96,6 @@ $(document).ready(function () {
         $("#countdown").addClass("hidden");
         $("#lives").addClass("hidden");
     };
-
 
     /**
      * Targets the HTML element with ID of restart 
@@ -160,7 +160,7 @@ $(document).ready(function () {
      * It then checks the objects Data in the flippedCards array
      * If they match it will run the functions match() complete() and lifeUp()
      * If they dont match it will run the functions notMatch() and lifeDown()
-     * If lives value is 0 the loser() function is called
+     * If lives value is 0 the lifeLoser() function is called
      * Finally it will reset the flippedCards length to 0
      */
     function checkMatch(flippedCards) {
@@ -190,7 +190,7 @@ $(document).ready(function () {
      * if it does an interval is set so that the variable countdown has 1 taken away from it every 1000 miliseconds
      * If the countDown variable has the value of 30 the element with the ID countdown changes to a yellow color
      * If the countDown variable has the value of 10 the element with the ID countdown changes to a red color
-     * If the countDown variable has the value of 0 the loser() function will run
+     * If the countDown variable has the value of 0 the timeLoser() function will run
      */
     function timerDown() {
         if (moves == 1) {
@@ -212,7 +212,7 @@ $(document).ready(function () {
 
     /**
      * When this function is called the interval set in the downTimer() function is cleared
-     * The modal with ID loser is shown
+     * The modal with ID timeLoser is shown
      * And all elements with the class game-card are given the class disable
      */
     function timeLoser() {
@@ -221,6 +221,11 @@ $(document).ready(function () {
         $(".game-card").addClass("disable");
     };
 
+    /**
+    * When this function is called the interval set in the downTimer() function is cleared
+    * The modal with ID lifeLoser is shown
+    * And all elements with the class game-card are given the class disable
+    */
     function lifeLoser() {
         clearInterval(diffTimer);
         $("#lifeLoser").modal("show");
@@ -238,7 +243,13 @@ $(document).ready(function () {
         (matchedCards).push(flippedCards);
     };
 
-
+    /**
+     * When this function is called the elements in the flippedCards array are given the not-match class and lose the flip class
+     * All elements with the game-card class are given the disable class
+     * A timeout function is set to wait 1100 miliseconds
+     * Then all eleements with the game-card class have the not-match and disable classes removed
+     * All elements with the matched class are given the disable class
+     */
     function notMatch() {
         $(flippedCards).addClass("not-match");
         $(flippedCards).removeClass("flip");
@@ -250,6 +261,11 @@ $(document).ready(function () {
         }, 1100);
     };
 
+    /**
+     * When called this function checks if the selectedDifficulty has the value of "hard"
+     * If it does it adds 1 to the value of the variable lives
+     * Then sets the inner HTML of the elements with the class life to the value of the variable lives
+     */
     function lifeUp() {
         if (selectedDifficulty === "hard") {
             lives++;
@@ -257,6 +273,11 @@ $(document).ready(function () {
         }
     };
 
+    /**
+    * When called this function checks if the selectedDifficulty has the value of "hard"
+    * If it does it decreases the value of the variable lives by 1
+    * Then sets the inner HTML of the elements with the class life to the value of the variable lives
+    */
     function lifeDown() {
         if (selectedDifficulty === "hard") {
             lives--;
@@ -302,6 +323,7 @@ $(document).ready(function () {
      * The element with the ID finish-minutes inner HTML is set to the variable minutes value
      * The element with the ID finish-hours inner HTML is set to the variable hours value
      * The element with the ID finish-moves inner HTML is set to the variable moves value
+     * Then the record() function is run and finally matchedCards length is set to 0
      */
     function complete() {
         if (matchedCards.length == 8) {
@@ -317,6 +339,20 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When this function is called it checks if the variables recordMoves, recordHours, recordMinutes and recordSeconds is not a number
+     * If they return NaN the functions setMoves(), setHours(), setMinutes() and setSeconds() are called
+     * If recordMoves returns a number it checks if the variable moves is less than the variable recordMoves
+     * If so the function setMoves() is called
+     * If recordHours returns a number it checks if the variable hours is less than the variable recordHours
+     * If so the functions setHours(), setMinutes() and setSeconds() are called
+     * if hours is not less than recordHours it checks if they are equal and if the varaible minutes is less than the variable recordMinutes
+     * If so the functions setMinutes() and setSeconds() are called
+     * If hours is not equal to recordHours and minutes is not less than recordMinutes
+     * It checks if hours is equal to recordHours, minutes is equal to recordMinutes and seconds is less that recordSeconds
+     * If so the function setSeconds() is called
+     *  
+     */
     function record() {
         if (isNaN(recordMoves)) {
             setMoves();
@@ -349,30 +385,54 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When this function is called the value of variable moves is saved to local storage with the ID recMove
+     * recordMoves is then set by calling the Id recMove from local storage and parseing the string to an interger
+     * The element wil ID record-moves then has it's innerHTML set to the value of the variable recordMoves
+     */
     function setMoves() {
         window.localStorage.setItem("recMove", moves);
         recordMoves = parseInt(window.localStorage.getItem("recMove"));
         $("#record-moves")[0].innerHTML = recordMoves;
     };
 
+    /**
+    * When this function is called the value of variable hours is saved to local storage with the ID rechour
+    * recordHours is then set by calling the Id rechour from local storage and parseing the string to an interger
+    * The element wil ID record-hours then has it's innerHTML set to the value of the variable recordHours
+    */
     function setHours() {
         window.localStorage.setItem("recHour", hours);
         recordHours = parseInt(window.localStorage.getItem("recHour"));
         $("#record-hours")[0].innerHTML = recordHours;
     };
 
+    /**
+    * When this function is called the value of variable minutes is saved to local storage with the ID recMin
+    * recordMinutes is then set by calling the Id recMin from local storage and parseing the string to an interger
+    * The element wil ID record-minutes then has it's innerHTML set to the value of the variable recordMinutes
+    */
     function setMinutes() {
         window.localStorage.setItem("recMin", minutes);
         recordMinutes = parseInt(window.localStorage.getItem("recMin"));
         $("#record-minutes")[0].innerHTML = recordMinutes;
     };
 
+    /**
+    * When this function is called the value of variable seconds is saved to local storage with the ID recSec
+    * recordSeconds is then set by calling the Id recSec from local storage and parseing the string to an interger
+    * The element wil ID record-seconds then has it's innerHTML set to the value of the variable recordSeconds
+    */
     function setSeconds() {
         window.localStorage.setItem("recSec", seconds);
         recordSeconds = parseInt(window.localStorage.getItem("recSec"));
         $("#record-seconds")[0].innerHTML = recordSeconds;
     };
 
+    /**
+     * When the element with the class replay is clicked the modals with IDs congratualtions, lifeLoser and timeLoser are hidden
+     * And the restart() function is called
+     */
     $(".replay").click(function () {
         $("#congratulations").modal("hide");
         $("#lifeLoser").modal("hide");
@@ -380,5 +440,8 @@ $(document).ready(function () {
         restart();
     });
 
+    /**
+     * The startGame() function is called when the page has loaded so the game is ready to play
+     */
     startGame();
 });
