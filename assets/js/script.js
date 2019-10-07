@@ -192,9 +192,6 @@ $(document).ready(function () {
             } else {
                 notMatch();
                 lifeDown();
-                if (lives < 3) {
-                    $("#lives").addClass("beat");
-                }
                 if (lives == 0) {
                     lifeLoser();
                 }
@@ -236,7 +233,9 @@ $(document).ready(function () {
     function timeLoser() {
         clearInterval(diffTimer);
         $("#timeLoser").modal("show");
-        $(".game-card").addClass("disable");
+        setTimeout(function () {
+            $(".game-card").addClass("disable");
+        }, 1101);
     };
 
     /**
@@ -247,7 +246,9 @@ $(document).ready(function () {
     function lifeLoser() {
         clearInterval(diffTimer);
         $("#lifeLoser").modal("show");
-        $(".game-card").addClass("disable");
+        setTimeout(function () {
+            $(".game-card").addClass("disable");
+        }, 1101);
     };
 
     /**
