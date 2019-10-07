@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Test Your Memory!</title>
+    <title>Test Your Memory</title>
 </head>
 
 <body>
@@ -16,22 +16,24 @@
     <header>
         <div class="container">
             <div class="row">
-                <h1 class="col page-title">Test Your Memory!</h1>
+                <h1 class="col page-title">Test Your Memory</h1>
             </div>
-                <div class="row">
-                    <div class="col">
-            <!-- Difficulty selector-->
-            <div class="row difficulty-selector">
-                <div class="col btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary active buttons">
-                        <input type="radio" name="easy" id="easy" autocomplete="off" checked> Easy
-                    </label>
-                    <label class="btn btn-secondary buttons">
-                        <input type="radio" name="medium" id="medium" autocomplete="off"> Medium
-                    </label>
-                    <label class="btn btn-secondary buttons">
-                        <input type="radio" name="hard" id="hard" autocomplete="off"> Hard
-                    </label>
+            <div class="row">
+                <div class="col">
+                    <!-- Difficulty selector-->
+                    <div class="row difficulty-selector">
+                        <div class="col btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active buttons">
+                                <input type="radio" name="easy" id="easy" checked> Easy
+                            </label>
+                            <label class="btn btn-secondary buttons">
+                                <input type="radio" name="medium" id="medium"> Medium
+                            </label>
+                            <label class="btn btn-secondary buttons">
+                                <input type="radio" name="hard" id="hard"> Hard
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,26 +200,26 @@
         </div>
         <!-- Loser modal (lives)-->
         <div class="modal" tabindex="-1" role="dialog" id="lifeLoser">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">You lose!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>You ran out of lives!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="replay">
-                                <p>Play Again?</p>
-                                <i class="fas fa-redo-alt replay"></i>
-                            </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You lose!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You ran out of lives!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="replay">
+                            <p>Play Again?</p>
+                            <i class="fas fa-redo-alt replay"></i>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
