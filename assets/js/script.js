@@ -26,9 +26,20 @@ $(document).ready(function () {
         }
     };
 
-    $("#howtoPlay").click(function() {
-        $("#instructions").modal("show");
-    })
+    $("#howtoPlay").click(function () {
+        if (selectedDifficulty === "easy") {
+            $("#easyInfo").modal("show");
+        } else {
+            if (selectedDifficulty === "medium") {
+                $("#medInfo").modal("show");
+            } else {
+                if (selectedDifficulty === "hard") {
+                    $("#hardInfo").modal("show");
+                }
+            }
+        }
+    });
+
 
     /**
      * When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
