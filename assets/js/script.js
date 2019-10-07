@@ -25,6 +25,18 @@ $(document).ready(function () {
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }
     };
+    
+    /**
+     * Credit for the theme selector night/day switch goes to Ramakrishna V on dribble
+     */
+    const toggle = document.querySelector('.toggle-input');
+    const initialState = localStorage.getItem('toggleState') == 'true';
+    toggle.checked = initialState;
+
+    toggle.addEventListener('change', function () {
+        localStorage.setItem('toggleState', toggle.checked);
+    });
+
     /**
      * When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
      */
@@ -231,7 +243,7 @@ $(document).ready(function () {
         (matchedCards).push(flippedCards);
     };
 
-    
+
     function notMatch() {
         $(flippedCards).addClass("not-match");
         $(flippedCards).removeClass("flip");
