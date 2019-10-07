@@ -189,7 +189,7 @@ $(document).ready(function () {
                 notMatch();
                 lifeDown();
                 if (lives == 0) {
-                    loser();
+                    lifeLoser();
                 }
             }
             flippedCards.length = 0;
@@ -215,7 +215,7 @@ $(document).ready(function () {
                     $("#countdown").css("color", "#ff0000")
                 }
                 if (countDown == 0) {
-                    loser();
+                    timeLoser();
                 }
             }, 1000);
         }
@@ -226,9 +226,15 @@ $(document).ready(function () {
      * The modal with ID loser is shown
      * And all elements with the class game-card are given the class disable
      */
-    function loser() {
+    function timeLoser() {
         clearInterval(diffTimer);
-        $("#loser").modal("show");
+        $("#timeLoser").modal("show");
+        $(".game-card").addClass("disable");
+    };
+
+    function lifeLoser() {
+        clearInterval(diffTimer);
+        $("#lifeLoser").modal("show");
         $(".game-card").addClass("disable");
     };
 
@@ -380,7 +386,8 @@ $(document).ready(function () {
 
     $(".replay").click(function () {
         $("#congratulations").modal("hide");
-        $("#loser").modal("hide");
+        $("#lifeLoser").modal("hide");
+        $("#timeLoser").modal("hide");
         restart();
     });
 
