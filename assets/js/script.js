@@ -177,6 +177,9 @@ $(document).ready(function () {
             } else {
                 notMatch();
                 lifeDown();
+                if (lives < 3) {
+                    $("#lives").addClass("beat");
+                }
                 if (lives == 0) {
                     lifeLoser();
                 }
