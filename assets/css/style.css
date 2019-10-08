@@ -59,6 +59,7 @@ body {
 
 .page-title {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .pointer {
@@ -101,7 +102,7 @@ body {
     text-align: center;
     color: #ff0000;
     font-size: 3rem;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .life {
