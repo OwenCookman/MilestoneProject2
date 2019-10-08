@@ -124,6 +124,13 @@ When the variable moves has a value of 1 and the difficulties Medium or Hard are
 
 ### Further Testing
 
+The page was shared with family and friends to gather any feedback on any issues found
+
+- The game board didn't display centered with the page, this was due to the width parameter on .deck, I wanted the cards to stay around the same size on all devices and in the same layout(4x4). This was fixed by reducing the width on .deck from 600px to 520px
+- The values stored in local storage were not updating as intended, some users found that after a couple of games the timer displayed 0:0:0, this was due to the way that the JavaScript was written. This was fixed by tightening the parameters on which values updated by using if else methods and updating only the values which needed to change
+- When Medium or Hard difficulties were failed some users found that they could close the modal that popped up and carry on playing without the timer. This was caused by the notMatch() functions timeout function which removed the disable class from all cards after 1100 miliseconds. This was fixed by removing the call for jQuery to add the class to all game cards from the parameter that checks if the player has lost and putting it within a timeout function inside of the function called to bring up the modal, this timeout function was set to 1101.
+
+
 ## Deployment
 
 The Visual Studio Code IDE was used to develop this project and all work was added, commited and pushed to a GitHub repsitory.
