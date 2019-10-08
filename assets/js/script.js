@@ -26,6 +26,15 @@ $(document).ready(function () {
         }
     };
 
+    /**
+     * When the element with the ID howtoPlay is clicked
+     * This function checks if the variable selectedDifficulty is set to "easy"
+     * If it is the modal with ID easyInfo is shown
+     * If it isn't the function checks if the variable selectedDifficulty is set to "medium"
+     * If it is the modal with ID medInfo is shown
+     * If it isn't the function checks if the variable selectedDifficulty is set to "hard"
+     * If it is the modal with ID hardInfo is shown
+     */
     $("#howtoPlay").click(function () {
         if (selectedDifficulty === "easy") {
             $("#easyInfo").modal("show");
@@ -39,7 +48,6 @@ $(document).ready(function () {
             }
         }
     });
-
 
     /**
      * When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
