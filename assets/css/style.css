@@ -61,13 +61,40 @@ body {
     text-align: center;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    color: #6c757d;
+    transition-property: color;
+    transition-duration: .3s;
+}
+
 .difficulty-selector {
     display: block;
     margin: 0 auto;
 }
 
+.btn {
+    padding: 0;
+}
+
 .btn-group-toggle>.btn, .btn-group-toggle>.btn-group>.btn {
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    color: #ffebcd;
+    background-color: #212121;
+    border-color: #6c757d;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #ffebcd;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
 .life-counter {
@@ -75,31 +102,6 @@ body {
     color: #ff0000;
     font-size: 3rem;
     margin-bottom: 5px;
-}
-
-.beat {
-    animation-name: beat;
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -o-animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    -moz-animation-timing-function: ease-in-out;
-    -o-animation-timing-function: ease-in-out;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-direction: alternate;
-    -moz-animation-direction: alternate;
-    -o-animation-direction: alternate;
-    -webkit-animation-direction: alternate;
-}
-
-@keyframes beat {
-    from {
-        font-size: 3rem;
-    }
-    to {
-        font-size: 20rem;
-    }
 }
 
 .life {
@@ -128,6 +130,7 @@ body {
     background-color: #8b0000;
     margin: 5px;
     max-width: 120px;
+    cursor: pointer;
 }
 
 .card {
