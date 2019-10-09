@@ -19,7 +19,7 @@ As someone who has some spare time on my hands I would like to find a game that 
 
 ### Wireframes
 
-Below are my first drafted ideas of how the page would look and work, these were originally made using Balsamiq Mockups 3.
+Below are my first drafted ideas of how the page would look and work, these were originally made using Balsamiq Mockups.
 
 - [Desktop Easy & Medium difficulty Light theme](wireframes/Desktop-Easy-Med-Light.png)
 - [Desktop Hard difficulty Light theme](wireframes/Desktop-Hard-Light.png)
@@ -39,6 +39,16 @@ Below are my first drafted ideas of how the page would look and work, these were
 - [Tablet Easy & Medium Dificulty Dark theme](wireframes/Tablet-Easy-Med-Dark.png)
 - [Tablet Hard Dificulty Dark theme](wireframes/Tablet-Hard-Dark.png)
 - [Tablet Instructions Dark theme](wireframes/Tablet-HowToPlay-Dark.png)
+
+The Theme selector was later discarded as it clogged the top of the page up, this would be reintroduced as a possible feature to implement alongside more customizability.
+
+All devices with a screen width of '567px' or less were too small to play the game effectively, it was decided that devices of that size would be asked to rotate to a landscape orientation.
+
+The start button was discarded as the game is ready to play on page load or when the restart button is pressed.
+
+A timer and move counter was added to give users something to track and to try and beat when they came back.
+
+The page layout was made more central to neaten the display of the page.
 
 ## Features
 
