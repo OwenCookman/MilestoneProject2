@@ -42,7 +42,7 @@ Below are my first drafted ideas of how the page would look and work, these were
 
 The Theme selector was later discarded as it clogged the top of the page up, this would be reintroduced as a possible feature to implement alongside more customizability.
 
-All devices with a screen width of '567px' or less were too small to play the game effectively, it was decided that devices of that size would be asked to rotate to a landscape orientation.
+All devices with a screen width of `567px` or less were too small to play the game effectively, it was decided that devices of that size would be asked to rotate to a landscape orientation.
 
 The start button was discarded as the game is ready to play on page load or when the restart button is pressed.
 
@@ -53,7 +53,7 @@ The page layout was made more central to neaten the display of the page.
 ## Features
 
 ### Rotate to landscape
-On a device with a screen width of '567px' or less a message appears prompting users to rotate their device to a landscape orientation, this is targeted generally at mobile phones. This is done with a CSS **media query** where the '<header>' and '<section>' are given a style of 'display: none;' and the message is styled to fill the screen with a rotating icon, its 'display: none;' being replaced with 'display: block;'.
+On a device with a screen width of `567px` or less a message appears prompting users to rotate their device to a landscape orientation, this is targeted generally at mobile phones. This is done with a CSS **media query** where the `<header>` and `<section>` are given a style of `display: none;` and the message is styled to fill the screen with a rotating icon, its `display: none;` being replaced with `display: block;`.
 
 ### How To Play Modal
 The instructions modal is shown by giving the element targeted the ID howtoPlay, using jQuery this sets a click function that will check what value the variable selectedDifficulty has, if it has the value "easy" it will display the modal with ID easyInfo, if it has the value "medium" it will display the modal with ID medInfo and if it has the value "hard" it will display the modal with ID hardInfo.
