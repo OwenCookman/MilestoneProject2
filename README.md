@@ -52,6 +52,9 @@ The page layout was made more central to neaten the display of the page.
 
 ## Features
 
+### Rotate to landscape
+On a device with a screen width of '567px' or less a message appears prompting users to rotate their device to a landscape orientation, this is targeted generally at mobile phones. This is done with a CSS **media query** where the '<header>' and '<section>' are given a style of 'display: none;' and the message is styled to fill the screen with a rotating icon, its 'display: none;' being replaced with 'display: block;'.
+
 ### How To Play Modal
 The instructions modal is shown by giving the element targeted the ID howtoPlay, using jQuery this sets a click function that will check what value the variable selectedDifficulty has, if it has the value "easy" it will display the modal with ID easyInfo, if it has the value "medium" it will display the modal with ID medInfo and if it has the value "hard" it will display the modal with ID hardInfo.
 The modals were created by using Bootstrap and removing HTML code that is not needed, then styled with CSS.
