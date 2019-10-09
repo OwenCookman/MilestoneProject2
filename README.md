@@ -127,7 +127,7 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 **As someone who has some spare time on my hands I would like to find a game that doesn't require too much investment and can provide a quick source of entertainment.**
 
 
-## Features Manual Testing
+## Manual Testing
 
 ### Code Validation
 
