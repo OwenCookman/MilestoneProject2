@@ -74,7 +74,7 @@ The card is then pushed to the `flippedCards` **array** which is an empty **arra
  This time there are two cards in the `flippedCards` **array** meaning that the parameters of the `if` in the `checkMatch()` function have been met. The `dataset-type` of both objects in the `flippedCards` **array** are then checked to see if they are identical, if they are then the `match()` function is called adding the `matched` class to the flipped cards and removing the class `flip`, then the contents of the `flippedCards` **array** are pushed to another currently empty **array** called `matchedCards`.
 
  The function `complete()` is then called but at this point the parameters of the `if` within that function are not met. If the cards are not identical the `notMatch()` function is called adding the class `not-match` to the elements in the `flippedCards` **array**, which gives a visual sign to the user that the cards don't match, and removes the class `flip` from the elements in the `flippedCards` **array**. It then adds the class `disable` to all elements with the `game-card` class so that other cards can't be flipped and a **Timeout function** is set to wait `1100` miliseconds, after this time the classes `not-match` and `disable` are removed from all elements with the `game-card` class and then any elements that have the `matched` class have the `disable` class applied to them. 
- 
+
  This process is repeated until the parameters of the `if` within the `complete()` function are met meaning that all cards are matched, the **modal** with `id= "congratulations"` is shown, the `timer`(easy)/`diffTimer`(med/hard) interval is stopped and within the **modal** the time and moves taken to finish are shown as well as the players record time and moves which are stored in local storage so that they persist from session to session.
 
 #### Medium Difficulty
@@ -153,18 +153,18 @@ The page was shared with family and friends to gather any feedback on any issues
 
 The Visual Studio Code IDE was used to develop this project and all work was added, commited and pushed to a GitHub repsitory.
 
-GitHub pages was used to deploy this project using the following steps:
+**To deploy on GitHub Pages**
 
 1. **Login** to GitHub
 2. Select the **Repositories** tab
-3. Select the **Milestone-project-1** repository
+3. Select the **MilestoneProject2** repository
 4. From the options near the top of the page select **Settings**
 5. Scroll down to the section titled **GitHub Pages**
 6. Under **Source** select the drop down menu and select **Master Branch**
 7. The page will automatically refresh and the page is now **deployed**
 8. Scroll back down to the GitHub Pages section to find the **URL**
 
-**To deploy the page locally**
+**How to run the project locally**
 
 1. Use [**this**](https://github.com/OwenCookman/Milestoneproject2) link to go to the **repository**
 2. Above the repository files select the green button that says **Clone or download**
