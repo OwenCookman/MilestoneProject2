@@ -66,10 +66,15 @@ The difficulty selector was created by using Bootstrap and styling with **CSS**.
 
 ### The Game 
 When the page loads the `startGame()` function is called which shuffles the cards in to a random order, when a card is clicked it has **CSS** classes added to it, `flip` which provides the card with its turning animation and displays the Font Awesome icon and `disable` which gives the card `pointer-events: none;` so that the card can't be flipped multiple times.
+
 The card is then pushed to the `flippedCards` **array** which is an empty **array** at the start of the game, it will then run the `checkMatch()` function but the parameters of the `if` have not been met yet.
+
  Once another card has been selected the `timer`(easy)/`diffTimer`(med/hard) will begin and the `moves` counter will go up by 1 for every two cards flipped and the code will run again. 
- This time there are two cards in the `flippedCards` **array** meaning that the parameters of the `if` in the `checkMatch()` function have been met. The `dataset-type` of both objects in the `flippedCards` **array** are then checked to see if they are identical, if they are then the `match()` function is called adding the `matched` class to the flipped cards and removing the class `flip`, then the contents of the `flippedCards` **array** are pushed to another currently empty **array** called `matchedCards`. 
+
+ This time there are two cards in the `flippedCards` **array** meaning that the parameters of the `if` in the `checkMatch()` function have been met. The `dataset-type` of both objects in the `flippedCards` **array** are then checked to see if they are identical, if they are then the `match()` function is called adding the `matched` class to the flipped cards and removing the class `flip`, then the contents of the `flippedCards` **array** are pushed to another currently empty **array** called `matchedCards`.
+
  The function `complete()` is then called but at this point the parameters of the `if` within that function are not met. If the cards are not identical the `notMatch()` function is called adding the class `not-match` to the elements in the `flippedCards` **array**, which gives a visual sign to the user that the cards don't match, and removes the class `flip` from the elements in the `flippedCards` **array**. It then adds the class `disable` to all elements with the `game-card` class so that other cards can't be flipped and a **Timeout function** is set to wait `1100` miliseconds, after this time the classes `not-match` and `disable` are removed from all elements with the `game-card` class and then any elements that have the `matched` class have the `disable` class applied to them. 
+ 
  This process is repeated until the parameters of the `if` within the `complete()` function are met meaning that all cards are matched, the **modal** with `id= "congratulations"` is shown, the `timer`(easy)/`diffTimer`(med/hard) interval is stopped and within the **modal** the time and moves taken to finish are shown as well as the players record time and moves which are stored in local storage so that they persist from session to session.
 
 #### Medium Difficulty
