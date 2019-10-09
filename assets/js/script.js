@@ -27,14 +27,10 @@ $(document).ready(function () {
     };
 
     /**
-     * When the element with the ID howtoPlay is clicked
-     * This function checks if the variable selectedDifficulty is set to "easy"
-     * If it is the modal with ID easyInfo is shown
-     * If it isn't the function checks if the variable selectedDifficulty is set to "medium"
-     * If it is the modal with ID medInfo is shown
-     * If it isn't the function checks if the variable selectedDifficulty is set to "hard"
-     * If it is the modal with ID hardInfo is shown
-     */
+   * When the element with the ID howtoPlay is clicked
+   * This function will check what the variable selectedDifficulty is set to
+   * then load the correct modal.
+   */
     $("#howtoPlay").click(function () {
         if (selectedDifficulty === "easy") {
             $("#easyInfo").modal("show");
@@ -49,20 +45,15 @@ $(document).ready(function () {
         }
     });
 
-    /**
-     * When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
-     */
+    
+    //When an element with the class buttons is clicked difficulty is set with the ID of the child element that was clicked
+     
     $(".buttons").click(function () {
         difficulty(this.children[0].id);
     });
 
     /**
-     * If difficulty is set with the value of "easy" the restart() and easyDifficulty() functions are run
-     * selectedDifficulty is set to "easy" and the function ends
-     * If difficulty is set with the value of "medium" the restart(), countdownTimer() and mediumDifficulty() functions are run
-     * selectedDifficulty is set to "medium" and the function ends
-     * If difficulty is set with the value of "hard" the restart(), countdownTimer() and hardDifficulty() functions are run
-     * selectedDifficulty is set to "hard" and the function ends
+     * When difficulty is set with a value it will run the code associated with with that "case"
      */
     function difficulty(value) {
         switch (value) {
@@ -120,15 +111,13 @@ $(document).ready(function () {
         $("#lives").addClass("hidden");
     };
 
+    
     /**
      * Targets the HTML element with ID of restart 
      * When this element is clicked it runs the startGame() function
-     * And removes any matched, disable and flip classes from any elements with the class game-card
-     * Sets the move counter, seconds, minutes and hours of the timer back to 0, the countDown timer back to 60 and lives back to 4
-     * Then stops the interval used in the time() and timerDown() functions
+     * Returns all variables to their starting value
+     * And stops any intervals
      */
-    $("#restart").click(restart);
-
     function restart() {
         startGame();
         $(".game-card").removeClass("matched");
@@ -153,6 +142,8 @@ $(document).ready(function () {
         clearInterval(timer);
     };
 
+    $("#restart").click(restart);
+
     /**
      * Targets all elements with class game-card
      * When they are clicked apply the classes flip and disable
@@ -176,15 +167,10 @@ $(document).ready(function () {
 
     /**
      * When called this function will check if the length of the flippedCards array is 2
-     * If this return true it will call the moved() function to add 1 to the move counter
-     * And call the time() function to start the timer
-     * It then checks if the selectedDifficulty variable is set with the value "medium" or "hard"
-     * If it is then it runs the timerDown() function to start the countdown timer
-     * It then checks the objects Data in the flippedCards array
-     * If they match it will run the functions match() complete() and lifeUp()
-     * If they dont match it will run the functions notMatch() and lifeDown()
-     * If lives value is 0 the lifeLoser() function is called
-     * Finally it will reset the flippedCards length to 0
+     * It will add 1 to the move counter
+     * On easy it will start the timer that counts up and on Medium or Hard it will start the timer that goes down
+     * On Hard difficulty if the cards dont match the player loses a life and if they do match they gain one
+     * If the players lives reach 0 the lifeLoser() function is called
      */
     function checkMatch(flippedCards) {
         if (flippedCards.length == 2) {
@@ -210,10 +196,8 @@ $(document).ready(function () {
 
     /**
      * When called this function will check if moves has the value of 1
-     * if it does an interval is set so that the variable countdown has 1 taken away from it every 1000 miliseconds
-     * If the countDown variable has the value of 30 the element with the ID countdown changes to a yellow color
-     * If the countDown variable has the value of 10 the element with the ID countdown changes to a red color
-     * If the countDown variable has the value of 0 the timeLoser() function will run
+     * If it does an interval is set so that the variable countdown has 1 taken away from it every 1000 miliseconds
+     * If the timer reaches 0 the timeLoser() function is called
      */
     function timerDown() {
         if (moves == 1) {
@@ -314,12 +298,7 @@ $(document).ready(function () {
 
     /**
      * When called this function checks if the variable moves is = to 1
-     * If so the variable seconds has 1 added to its value every 1000 milliseconds
-     * And displays in the inner HTML of the element with ID seconds
-     * If seconds value reaches 60 the variable minutes adds 1 to its value
-     * And displays in the inner HTML of the element with ID minutes
-     * If minutes value reaches 60 the variable hours adds 1 to its value
-     * And displays in the inner HTML of the element with ID hours
+     * If so the timer begins counting up
      */
     function time() {
         if (moves == 1) {
@@ -345,12 +324,8 @@ $(document).ready(function () {
     /**
      * When called this function checks if the matchedCards array's length is 8
      * If it is the modal with ID congratulations is shown
-     * The intervals set in the functions time() and downTimer() are cleared
-     * The element with the ID finish-seconds inner HTML is set to the variable seconds value
-     * The element with the ID finish-minutes inner HTML is set to the variable minutes value
-     * The element with the ID finish-hours inner HTML is set to the variable hours value
-     * The element with the ID finish-moves inner HTML is set to the variable moves value
-     * Then the record() function is run and finally matchedCards length is set to 0
+     * The timers are stopped and the finishing time and moves is displayed
+     * The record() function is run and the matchedCards array is reset
      */
     function complete() {
         if (matchedCards.length == 8) {
