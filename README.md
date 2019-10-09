@@ -17,7 +17,7 @@ As a younger developing person I would benefit from exercising my memory, I woud
 #### User looking for quick entertainemnt 
 As someone who has some spare time on my hands I would like to find a game that doesn't require too much investment and can provide a quick source of entertainment.
 
-#### Wireframes
+### Wireframes
 
 Below are my first drafted ideas of how the page would look and work, these were originally made using Balsamiq Mockups 3.
 
