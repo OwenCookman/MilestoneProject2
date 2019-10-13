@@ -116,23 +116,47 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - The HTML and CSS code were validated using the [**W3C Markup Validation Service**](https://validator.w3.org/) website
 
 ## Testing
+- The HTML and CSS code were validated using the [**W3C Markup Validation Service**](https://validator.w3.org/) website
 
 ### User Stories Tested
 
 #### User with memory difficulties
 **As someone who has difficulty remembering things, I would like to find a game that is entertaining, not too much of a challenge to begin with and will help to improve my memory.**
-
+- The game provides a quick and simple explenation as to how to play
+- Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
+- The game will record the users best number of moves and quickest time to give them something to try to beat
+- Once the user is used to the game and finding Easy to be too easy they can then select to go on to Medium or Hard difficulty
+- Medium difficulty provides an added challenge in that the user must complete the game within 60 seconds or be interupted and have to start again
+- Hard difficulty adds even more of a challenge by adding a life mechanic on top of Medium difficulty, the player will lose a life every time they fail to match a card and gain a life every time they do match a chard, if their lives reach 0 they are interrupted and will have to start again
+- To play the game well a user will need to remember the position of each icon they have uncovered, with the added difficulty of Medium and Hard mode this will help them to exercise their memory
 
 #### User exercising memory skills
 **As a younger developing person I would benefit from exercising my memory, I woud like to find a way that will keep me entertained and allow me to control the difficulty that I am playing at.**
+- The game provides a quick and simple explenation as to how to play
+- Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
+- The game will record the users best number of moves and quickest time to give them something to try to beat
+- Once the user is used to the game and finding Easy to be too easy they can then select to go on to Medium or Hard difficulty, if this is too difficult the user can at any time change the dificulty back
+- Medium difficulty provides an added challenge in that the user must complete the game within 60 seconds or be interupted and have to start again
+- Hard difficulty adds even more of a challenge by adding a life mechanic on top of Medium difficulty, the player will lose a life every time they fail to match a card and gain a life every time they do match a chard, if their lives reach 0 they are interrupted and will have to start again
+- To play the game well a user will need to remember the position of each icon they have uncovered, with the added difficulty of Medium and Hard mode this will help them to exercise their memory in an entertaining way
 
 
 
 #### User looking for quick entertainemnt
 **As someone who has some spare time on my hands I would like to find a game that doesn't require too much investment and can provide a quick source of entertainment.**
+- The game provides a quick and simple explenation as to how to play
+- Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
+- The game will record the users best number of moves and quickest time to give them something to try to beat
+- Once the user is used to the game and finding Easy to be too easy they can then select to go on to Medium or Hard difficulty
+- Medium difficulty provides an added challenge in that the user must complete the game within 60 seconds or be interupted and have to start again
+- Hard difficulty adds even more of a challenge by adding a life mechanic on top of Medium difficulty, the player will lose a life every time they fail to match a card and gain a life every time they do match a chard, if their lives reach 0 they are interrupted and will have to start again
+- The game provides a quick source of entertainment and can be dialed up or down depending on the challenge the user is seeking
+
+### Manual Testing
+**Testing was carried out on a desktop computer**
 
 
-## Manual Testing
+
 
 ### Code Validation
 
@@ -177,14 +201,9 @@ The Visual Studio Code IDE was used to develop this project and all work was add
 
 I would like to credit user Alexey Lebedev on [**Stack Overflow**](https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order?fbclid=IwAR1w-IDlqpvp22TWQQBhF4QQBndle4ikf6vEgWK4DIcW75yCZmN_m2jQY94) for the Shuffle function that was used in this project.
 
-### Content
-
-
-### Media
-
-
 ## Acknowledgements
-
+I would like to thank my family and friends for testing this project and reporting back to me with any issues.
+I would also like to thank my mentor Simen Daehlin for his brilliant tutelage
 
 
 *This project was created for educational purposes only*
