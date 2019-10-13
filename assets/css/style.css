@@ -206,25 +206,15 @@ body {
     }
 }
 
-.not-match {
-    background-color: #111111;
-    font-size: 4rem;
-}
-
-.modal-header {
+.no-border {
     border-bottom: none;
-    background-color: #111111;
-}
-
-.modal-body {
-    background-color: #111111;
+    border-top: none;
 }
 
 .close {
     color: #ffebcd;
 }
 
-.modal-footer {
-    border-top: none;
+.black {
     background-color: #111111;
 }

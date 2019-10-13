@@ -255,18 +255,18 @@ $(document).ready(function () {
     };
 
     /**
-     * When this function is called the elements in the flippedCards array are given the not-match class and lose the flip class
+     * When this function is called the elements in the flippedCards array are given the black class and lose the flip class
      * All elements with the game-card class are given the disable class
      * A timeout function is set to wait 1100 miliseconds
-     * Then all eleements with the game-card class have the not-match and disable classes removed
+     * Then all eleements with the game-card class have the black and disable classes removed
      * All elements with the matched class are given the disable class
      */
     function notMatch() {
-        $(flippedCards).addClass("not-match");
+        $(flippedCards).addClass("black");
         $(flippedCards).removeClass("flip");
         $(".game-card").addClass("disable");
         setTimeout(function () {
-            $(".game-card").removeClass("not-match");
+            $(".game-card").removeClass("black");
             $(".game-card").removeClass("disable");
             $(".matched").addClass("disable");
         }, 1100);
