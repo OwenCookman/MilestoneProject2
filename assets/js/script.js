@@ -262,11 +262,11 @@ $(document).ready(function () {
      * All elements with the matched class are given the disable class
      */
     function notMatch() {
-        $(flippedCards).addClass("black");
+        $(flippedCards).addClass("not-match");
         $(flippedCards).removeClass("flip");
         $(".game-card").addClass("disable");
         setTimeout(function () {
-            $(".game-card").removeClass("black");
+            $(".game-card").removeClass("not-match");
             $(".game-card").removeClass("disable");
             $(".matched").addClass("disable");
         }, 1100);

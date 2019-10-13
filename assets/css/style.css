@@ -156,6 +156,7 @@ body {
     top: 2rem;
     left: 0;
     right: 0;
+    color: #212121;
 }
 
 .flip {
@@ -173,6 +174,12 @@ body {
     -o-animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
     font-size: 4rem;
+}
+
+/*Background color reused here as it would not apply through the JS function notMatch*/
+.not-match {
+    font-size: 4rem;
+    background-color: #111111;
 }
 
 @keyframes flip {
