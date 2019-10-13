@@ -155,6 +155,18 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 ### Manual Testing
 **Testing was carried out on a desktop computer**
 
+#### How to play
+- Open the game in a new browser window
+- Hover mouse over the "How to play" text and font awesome icon under the page title and see that the white colour fades to a light grey and the cursor has changed to a pointing hand
+- Click the "How to play" button and see that a modal pops up describing how to play the game on easy mode
+- Click the cross in the top right corner of the modal to see it close
+- Click on the Medium button of the Difficulty selector
+- Click on the "How to play" button and see that a modal has appeared with information on how to play the game on Medium difficulty
+- Click on the cross in the top right corner of the modal to see it close
+- Click on the Hard button of the difficulty selector
+- Click on the "How to play" button and see that a modal has appeared with information on how to play the game on Hard difficulty
+- Click on the cross in the top right corner of the modal to see it close
+
 
 
 
