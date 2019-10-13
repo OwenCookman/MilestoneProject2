@@ -157,7 +157,7 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 
 #### How to play
 - Open the game in a new browser window
-- Hover mouse over the "How to play" text and font awesome icon under the page title and see that the white colour fades to a light grey and the cursor has changed to a pointing hand
+- Hover mouse over the "How to play" text and font awesome icon under the page title and see that the white colour fades to grey and the cursor has changed to a pointing hand
 - Click the "How to play" button and see that a modal pops up describing how to play the game on easy mode
 - Click the cross in the top right corner of the modal to see it close
 - Click on the Medium button of the Difficulty selector
@@ -166,6 +166,18 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - Click on the Hard button of the difficulty selector
 - Click on the "How to play" button and see that a modal has appeared with information on how to play the game on Hard difficulty
 - Click on the cross in the top right corner of the modal to see it close
+
+#### Difficulty Selector
+- Open the game in a new browser window
+- See that the game loads in easy difficulty
+- Click on the Medium button of the difficulty selector
+- See that the timer on the right side of the page has changed from 0:0:0 to 60
+- Click on the Hard button of the difficulty selector
+- See that a heart appears in the centre above the restart button and displays the number 4 inside it
+- Click on the Easy button of the difficulty selector
+- See that the Heart dissapears and the timer on the right side of the page has changed from 60 to 0:0:0
+
+
 
 
 
