@@ -474,6 +474,7 @@ I would like to credit user Alexey Lebedev on [**Stack Overflow**](https://stack
 
 ## Acknowledgements
 
-I would like to thank my family and friends for testing this project and reporting back to me with any issues. I would also like to thank my mentor Simen Daehlin for his brilliant tutelage
+I would like to thank my family and friends for testing this project and reporting back to me with any issues. 
+I would also like to thank my mentor Simen Daehlin for his brilliant tutelage.
 
-This project was created for educational purposes only_
+This project was created for educational purposes only.
