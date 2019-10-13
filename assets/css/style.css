@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
 /*Styling to the whole body*/
+
 body {
     font-family: "Merriweather", "serif";
     text-align: center;
@@ -7,6 +8,7 @@ body {
 }
 
 /*Background colors and colors used across multiple elements*/
+
 .black {
     background-color: #111111;
 }
@@ -20,6 +22,7 @@ body {
 }
 
 /*Styling and parameters for the flip device message*/
+
 .flip-device {
     max-width: 100%;
     max-height: 100%;
@@ -70,12 +73,14 @@ body {
 }
 
 /*Styling to Page title*/
+
 .page-title {
     text-align: center;
     margin-bottom: 30px;
 }
 
 /*Used to add the pointer to selected elements such as cards, restart buttons and the how to play button as well as styling*/
+
 .pointer {
     cursor: pointer;
 }
@@ -87,6 +92,7 @@ body {
 }
 
 /*Styling for difficulty selector and to customise the Bootstrap presets*/
+
 .difficulty-selector {
     display: block;
     margin: 0 auto;
@@ -110,6 +116,7 @@ body {
 }
 
 /*Styling and positionging for the life counter heart and to sit the number of lives within it*/
+
 .life-counter {
     text-align: center;
     color: #ff0000;
@@ -127,11 +134,13 @@ body {
 }
 
 /*Used to hide elements when cetain difficulties are selected as well as hiding the page when the screen width is below 568px*/
+
 .hidden {
     display: none;
 }
 
 /*Styling and positioning for the game cards as well as their container, icons and animations*/
+
 .deck {
     width: 520px;
     height: 600px;
@@ -177,6 +186,7 @@ body {
 }
 
 /*Background color reused here as it would not apply through the JS function notMatch*/
+
 .not-match {
     font-size: 4rem;
     background-color: #111111;
@@ -225,6 +235,7 @@ body {
 }
 
 /* Styling used to customise Bootstraps modals*/
+
 .no-border {
     border-bottom: none;
     border-top: none;
