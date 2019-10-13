@@ -185,6 +185,34 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - Repeat the process above and see that the move counter no displayes Move(s): 2
 - Continue to repeat this process until satisfied that the move counter increases by 1 for every two cards flipped
 
+#### Timer (Easy)
+- Open the game in a new browser window
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer in the right corner has begun to count upwards (0:0:0 to 0:0:1 to 0:0:2 etc)
+- Wait for the counter to reach 0:0:59 and then turn to 0:1:0
+- Wait for the counter to reach 0:59:59 nd see that it turns to 1:0:0
+
+#### Timer (Medium/Hard)
+- Open the game in a new browser window
+- Click on the Medium Button of the difficulty selector
+- See that the timer on the right hand side has changed from 0:0:0 to 60
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer has begun counting down (60 to 59 to 58 etc)
+- When the timer reaches 30 see that the color of the timer changes from white to yellow
+- When the timer reaches 10 see that the color of the timer change from yellow to red
+- When the timer reaches 0 see that a modal pops up saying "You didn't complete the game in under 60 seconds!"
+- Open the game in a new browser window
+- Click on the Hard Button of the difficulty selector
+- See that the timer on the right hand side has changed from 0:0:0 to 60
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer has begun counting down (60 to 59 to 58 etc)
+- When the timer reaches 30 see that the color of the timer changes from white to yellow
+- When the timer reaches 10 see that the color of the timer change from yellow to red
+- When the timer reaches 0 see that a modal pops up saying "You didn't complete the game in under 60 seconds!"
+
 
 
 
