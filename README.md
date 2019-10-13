@@ -177,6 +177,30 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - Click on the Easy button of the difficulty selector
 - See that the Heart dissapears and the timer on the right side of the page has changed from 60 to 0:0:0
 
+#### Card flip
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+
+#### Card flip matched cards
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are the same
+- See both cards flip around again, changing their color to grey and stay facing up
+- See that hovering over both cards does nothing
+- See that clicking on either card will do nothing
+- See that hovering over other cards will change the cursor to a pointing hand
+
+#### Card flip not matched cards
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are not the same
+- See that both cards turn black for a second before returning to their original position
+
 #### Move Counter
 - Open the game in a new browser window
 - Click on a game card, see it flip over and stay that way
@@ -289,6 +313,42 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - See that all cards are back to their original facing
 - See that the timer is displaying 60 and isn't counting down
 - See that the move counter is back to 0
+
+#### Congratulations Modal
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are the same
+- See both cards flip around again, changing their color to grey and stay facing up
+- Repeat thi process until all cards are matched
+- See a modal appear titled "Congratulations!"
+
+##### Congratualtions Modal Current Moves/Time
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are the same
+- See both cards flip around again, changing their color to grey and stay facing up
+- Repeat thi process until all cards are matched
+- See a modal appear titled "Congratulations!"
+- See that the number of moves and time taken to complete that game are displayed 
+
+##### Congratulations Modal Record Moves/Time
+- Open the game in a new browser window
+- Hover over a game card and see that the cursor changes to a pointing hand
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are the same
+- See both cards flip around again, changing their color to grey and stay facing up
+- Repeat thi process until all cards are matched
+- See a modal appear titled "Congratulations!"
+- See that the number of moves and time taken to complete that game are displayed and they are also displayed as the best number of moves and time taken
+- Repeat the process to complete the game again but with more moves and a slower time
+- See that the number of moves and time taken to complete that game are displayed but the number of moves and time taken are the same as the last game
+- Repeat the process to complete the game again but with less moves and a faster time
+- See that the number of moves and time taken to complete that game are displayed and they are also displayed as the record number of moves and time taken
 
 
 
