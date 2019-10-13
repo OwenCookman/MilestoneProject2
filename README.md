@@ -177,6 +177,14 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - Click on the Easy button of the difficulty selector
 - See that the Heart dissapears and the timer on the right side of the page has changed from 60 to 0:0:0
 
+#### Move Counter
+- Open the game in a new browser window
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the move conter now displays Move(s): 1
+- Repeat the process above and see that the move counter no displayes Move(s): 2
+- Continue to repeat this process until satisfied that the move counter increases by 1 for every two cards flipped
+
 
 
 
