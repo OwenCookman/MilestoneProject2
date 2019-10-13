@@ -247,7 +247,48 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - See that the timer is displaying 60 and isn't counting down
 - See that the move counter is back to 0
 
-
+#### Replay button
+- Open the game in a new browser window
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer in the right corner has begun to count upwards (0:0:0 to 0:0:1 to 0:0:2 etc)
+- See that the move counter is displaying Move(s): 1
+- Play the game until completed
+- See the congratulations modal pop up
+- Hover over the button labelled "play again?" and see that it fades from white to grey and the cursor has changed to a pointing hand
+- Click on the button
+- See that all cards are back to their original facing
+- See that the timer is displaying 0:0:0 and isn't counting up
+- See that the move counter is back to 0
+- Open the game in a new browser window
+- Click on the Medium button of the difficulty selector
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer in the right corner has begun counting down (60 to 59 to 58 etc)
+- See that the move counter is displaying Move(s): 1
+- Play the game until completion or until the timer reaches 0
+- See either the congratulations modal or the modal for running out of time pop up
+- Hover over the button labelled "play again?" and see that it fades from white to grey and the cursor has changed to a pointing hand
+- Click on the button
+- See that all cards are back to their original facing
+- See that the timer is displaying 60 and isn't counting down
+- See that the move counter is back to 0
+- Open the game in a new browser window
+- Click on the Hard button of the difficulty selector
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- If it matched see that the number of lives displayed in the heart has gone up (4 to 5)
+- If it didn't match see that the number of lives dosplayed in the heart has gone down (4 to 3)
+- See that the timer in the right corner has begun counting down (60 to 59 to 58 etc)
+- See that the move counter is displaying Move(s): 1
+- Play the game until completion, the timer reaches 0 or the lives reach 0
+- See either the congratulations modal, the modal for running out of time or the modal for running out of lives pop up
+- Hover over the button labelled "play again?" and see that it fades from white to grey and the cursor has changed to a pointing hand
+- Click on the button
+- See that the lives displayed in the heart are showing 4
+- See that all cards are back to their original facing
+- See that the timer is displaying 60 and isn't counting down
+- See that the move counter is back to 0
 
 
 
