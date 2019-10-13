@@ -121,7 +121,9 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 ### User Stories Tested
 
 #### User with memory difficulties
-**As someone who has difficulty remembering things, I would like to find a game that is entertaining, not too much of a challenge to begin with and will help to improve my memory.**
+As someone who has difficulty remembering things, I would like to find a game that is entertaining, not too much of a challenge to begin with and will help to improve my memory.
+
+
 - The game provides a quick and simple explenation as to how to play
 - Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
 - The game will record the users best number of moves and quickest time to give them something to try to beat
@@ -131,7 +133,9 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - To play the game well a user will need to remember the position of each icon they have uncovered, with the added difficulty of Medium and Hard mode this will help them to exercise their memory
 
 #### User exercising memory skills
-**As a younger developing person I would benefit from exercising my memory, I woud like to find a way that will keep me entertained and allow me to control the difficulty that I am playing at.**
+As a younger developing person I would benefit from exercising my memory, I woud like to find a way that will keep me entertained and allow me to control the difficulty that I am playing at.
+
+
 - The game provides a quick and simple explenation as to how to play
 - Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
 - The game will record the users best number of moves and quickest time to give them something to try to beat
@@ -143,7 +147,9 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 
 
 #### User looking for quick entertainemnt
-**As someone who has some spare time on my hands I would like to find a game that doesn't require too much investment and can provide a quick source of entertainment.**
+As someone who has some spare time on my hands I would like to find a game that doesn't require too much investment and can provide a quick source of entertainment.
+
+
 - The game provides a quick and simple explenation as to how to play
 - Upon arriving at the page the game is set to Easy mode which will never interrupt the user and cause frustration
 - The game will record the users best number of moves and quickest time to give them something to try to beat
@@ -236,6 +242,19 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - When the timer reaches 30 see that the color of the timer changes from white to yellow
 - When the timer reaches 10 see that the color of the timer change from yellow to red
 - When the timer reaches 0 see that a modal pops up saying "You didn't complete the game in under 60 seconds!"
+
+#### Out of Time Modal
+- Open the game in a new browser window
+- Click on the Medium or Hard Button of the difficulty selector
+- See that the timer on the right hand side has changed from 0:0:0 to 60
+- Click on a game card, see it flip over and stay that way
+- Click on a second game card, see it flip over and either match or not match the other card
+- See that the timer has begun counting down (60 to 59 to 58 etc)
+- When the timer reaches 30 see that the color of the timer changes from white to yellow
+- When the timer reaches 10 see that the color of the timer change from yellow to red
+- When the timer reaches 0 see that a modal pops up saying "You didn't complete the game in under 60 seconds!"
+- Click on the button titled "Play again?" in the bottom right corner of the modal
+- See that the modal closes, the moves counter is set to 0, the timer is set to 60 and not counting down, all cards are back to their originl facing (in the case of Hard difficulty lives would also be set back to 4)
 
 #### Restart button
 - Open the game in a new browser window
@@ -349,6 +368,14 @@ When the variable `moves` has a value of `1` and the difficulties Medium or Hard
 - See that the number of moves and time taken to complete that game are displayed but the number of moves and time taken are the same as the last game
 - Repeat the process to complete the game again but with less moves and a faster time
 - See that the number of moves and time taken to complete that game are displayed and they are also displayed as the record number of moves and time taken
+
+
+
+#### Life Counter
+
+##### Out of Lives Modal
+
+#### Flip Device
 
 
 
