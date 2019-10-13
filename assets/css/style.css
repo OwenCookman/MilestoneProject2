@@ -1,16 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
+/*Styling to the whole body*/
 body {
-    background-color: #212121;
     font-family: "Merriweather", "serif";
     text-align: center;
     font-size: 16px;
+}
+
+/*Background colors and colors used across multiple elements*/
+.black {
+    background-color: #111111;
+}
+
+.slate {
+    background-color: #212121;
+}
+
+.white {
     color: #ffebcd;
 }
 
+/*Styling and parameters for the flip device message*/
 .flip-device {
     max-width: 100%;
     max-height: 100%;
-    background-color: #212121;
     display: none;
     font-size: 3rem;
     margin-top: 80px;
@@ -57,11 +69,13 @@ body {
     }
 }
 
+/*Styling to Page title*/
 .page-title {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/*Used to add the pointer to selected elements such as cards, restart buttons and the how to play button as well as styling*/
 .pointer {
     cursor: pointer;
 }
@@ -72,6 +86,7 @@ body {
     transition-duration: .3s;
 }
 
+/*Styling for difficulty selector and to customise the Bootstrap presets*/
 .difficulty-selector {
     display: block;
     margin: 0 auto;
@@ -87,17 +102,14 @@ body {
 }
 
 .btn-secondary {
-    color: #ffebcd;
-    background-color: #212121;
     border-color: #6c757d;
 }
 
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-    color: #ffebcd;
     background-color: #6c757d;
-    border-color: #6c757d;
 }
 
+/*Styling and positionging for the life counter heart and to sit the number of lives within it*/
 .life-counter {
     text-align: center;
     color: #ff0000;
@@ -107,7 +119,6 @@ body {
 
 .life {
     text-align: center;
-    color: #ffebcd;
     font-size: 2rem;
     position: absolute;
     left: 0px;
@@ -115,15 +126,16 @@ body {
     top: 5px;
 }
 
+/*Used to hide elements when cetain difficulties are selected as well as hiding the page when the screen width is below 568px*/
 .hidden {
     display: none;
 }
 
+/*Styling and positioning for the game cards as well as their container, icons and animations*/
 .deck {
     width: 520px;
     height: 600px;
     margin: 0 auto;
-    background-color: #212121;
 }
 
 .game-card {
@@ -144,7 +156,6 @@ body {
     top: 2rem;
     left: 0;
     right: 0;
-    color: #212121;
 }
 
 .flip {
@@ -206,15 +217,8 @@ body {
     }
 }
 
+/* Styling used to customise Bootstraps modals*/
 .no-border {
     border-bottom: none;
     border-top: none;
-}
-
-.close {
-    color: #ffebcd;
-}
-
-.black {
-    background-color: #111111;
 }
