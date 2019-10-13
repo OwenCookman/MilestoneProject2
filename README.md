@@ -204,7 +204,7 @@ As someone who has some spare time on my hands I would like to find a game that 
 - Hover over a game card and see that the cursor changes to a pointing hand
 - Click on a game card, see it flip over, displaying its icon and stay that way
 - Click on a second game card, see it flip over, displaying its icon
-- Both icons on the cards are not the same
+- The icons on the cards are not the same
 - See that both cards turn black for a second before returning to their original position
 
 #### Move Counter
@@ -369,11 +369,34 @@ As someone who has some spare time on my hands I would like to find a game that 
 - Repeat the process to complete the game again but with less moves and a faster time
 - See that the number of moves and time taken to complete that game are displayed and they are also displayed as the record number of moves and time taken
 
-
-
 #### Life Counter
+- Open the game in a new browser window
+- Click on the Hard button of the difficulty selector
+- See that a heart appears in the centre above the restart button and displays the number 4 inside it
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- Both icons on the cards are the same
+- See both cards flip around again, changing their color to grey and stay facing up
+- See that the number inside the heart has gone up (4 to 5)
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- The icons on the cards are not the same
+- See that both cards turn black for a second before returning to their original position
+- See that the number inside the heart has gone down (5 to 4)
 
 ##### Out of Lives Modal
+- Open the game in a new browser window
+- Click on the Hard button of the difficulty selector
+- See that a heart appears in the centre above the restart button and displays the number 4 inside it
+- Click on a game card, see it flip over, displaying its icon and stay that way
+- Click on a second game card, see it flip over, displaying its icon
+- The icons on the cards are not the same
+- See that both cards turn black for a second before returning to their original position
+- See that the number inside the heart has gone down (4 to 5)
+- Repeat this process until the number inside the heart reaches 0
+- See a modal pop up with the message "You ran out of lives!"
+- Click on the button titled "Play again?" in the bottom right corner of the modal
+- See that the modal closes, the moves counter is set to 0, the timer is set to 60 and not counting down, all cards are back to their originl facing and the lives are set back to 4
 
 #### Flip Device
 
