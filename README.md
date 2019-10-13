@@ -399,8 +399,13 @@ As someone who has some spare time on my hands I would like to find a game that 
 - See that the modal closes, the moves counter is set to 0, the timer is set to 60 and not counting down, all cards are back to their originl facing and the lives are set back to 4
 
 #### Flip Device
-
-
+- Open the game in a new browser window
+- Right click on the page and select inspect or press Ctrl + Shift + I
+- Click on the Toggle device toolbar button or press Ctrl + Shift + M
+- Select a mobile phone from the device list above the page or select responsive and set the width to 567
+- See that the page has dissapeared to be replaced by text saying "Please turn your device to a landscape orientation" followed by a slowly turning rotation symbol
+- Select the rotate button that is above the page
+- If the device dimensions you are viewing on are set to a specific mobile phone or the responsive dimensions are set with the height being larger than 567 the message dissapears and the game is displayed
 
 
 ### Code Validation
